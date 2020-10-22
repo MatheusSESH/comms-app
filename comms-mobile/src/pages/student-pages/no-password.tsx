@@ -9,8 +9,8 @@ import { useNavigation } from '@react-navigation/native';
 export default function changePassword() {
     const navigation = useNavigation();
     
-    function Loading() {
-        navigation.navigate('loading-page');
+    function Message() {
+        navigation.navigate('changePasswordSuccessful');
     } 
 
     return (
@@ -24,14 +24,14 @@ export default function changePassword() {
 
                     <Input 
                         placeholder='Email'
-                        placeholderTextColor='#FFF'
+                        placeholderTextColor='#FFFFFF'
                         style={styles.input}
-                        inputContainerStyle={{ borderBottomColor: '#FFF' }}
+                        inputContainerStyle={{ borderBottomColor: '#FFFFFF' }}
                         leftIcon={
                             <Feather 
                                 name="mail"
                                 size={24}
-                                color="#FFF"
+                                color="#FFFFFF"
                             />
                         }
                     />
@@ -39,7 +39,7 @@ export default function changePassword() {
                     <View style={styles.button_content} >
                         <Button
                             title='Confirmar'
-                            onPress={Loading}
+                            onPress={Message}
                             titleStyle={{ fontFamily: 'Nunito_700Bold', fontSize: 24, color: '#2A88F3' }}
                             buttonStyle={{ 
                                 backgroundColor: '#FFFFFF', 
@@ -88,12 +88,12 @@ const styles = StyleSheet.create({
         fontFamily: 'Nunito_700Bold',
         textAlign: 'center',
         fontSize: 16,
-        color: '#FFF',
+        color: '#FFFFFF',
     },
 
     input: {
         paddingLeft: 10,
-        color: '#FFF'
+        color: '#FFFFFF'
     },
 
     button_content: {

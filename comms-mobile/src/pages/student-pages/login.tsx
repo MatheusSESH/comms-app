@@ -36,30 +36,30 @@ export default function loginStudent() {
                 <Text style={styles.title_form}>Login</Text>
                 <Input
                     placeholder='Email'
-                    placeholderTextColor='#FFF'
+                    placeholderTextColor='#FFFFFF'
                     style={styles.input_form}
-                    inputContainerStyle={{ borderBottomColor: '#FFF' }}
+                    inputContainerStyle={{ borderBottomColor: '#FFFFFF' }}
                     leftIcon={
                         <Feather 
                             name="mail"
                             size={24}
-                            color="#FFF"
+                            color="#FFFFFF"
                         />
                     }
                 />
 
                 <Input 
                     placeholder='Senha'
-                    placeholderTextColor='#FFF'
+                    placeholderTextColor='#FFFFFF'
                     secureTextEntry={key? true: false}
                     style={styles.input_form}
-                    inputContainerStyle={{ borderBottomColor: '#FFF' }}
-                    inputStyle={{ color: '#FFF' }}
+                    inputContainerStyle={{ borderBottomColor: '#FFFFFF' }}
+                    inputStyle={{ color: '#FFFFFF' }}
                     leftIcon={
                         <Feather 
                             name="lock"
                             size={24}
-                            color="#FFF"
+                            color="#FFFFFF"
                         />
                     }
                     rightIcon={
@@ -67,7 +67,7 @@ export default function loginStudent() {
                             onPress={showkey}
                             name={key ? 'eye-off' : 'eye'}
                             size={24}
-                            color="#FFF"
+                            color="#FFFFFF"
                         />
                     }
                 />
@@ -105,10 +105,9 @@ export default function loginStudent() {
                             borderRadius: 20,
                         }}
                     >
-
                     </Button>
-
                 </View>
+                
                     <View style={styles.footer_btn}>
                         <Button 
                             title="Não possuo cadastro"
@@ -157,7 +156,7 @@ const styles = StyleSheet.create({
         width: 350,
 
         fontSize: 30,
-        color: '#FFF',
+        color: '#FFFFFF',
         fontFamily: 'Nunito_700Bold',
         marginBottom: 40,
 
@@ -171,7 +170,7 @@ const styles = StyleSheet.create({
         
         fontSize: 18,
         paddingLeft: 10,
-        color: '#FFF',
+        color: '#FFFFFF',
     },
 
     switch_text: {
@@ -179,7 +178,7 @@ const styles = StyleSheet.create({
         left: 48,
 
         fontSize: 16,
-        color: '#FFF',
+        color: '#FFFFFF',
         fontFamily: 'Nunito_600SemiBold',
     },
 

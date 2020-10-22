@@ -1,61 +1,59 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Dimensions, ScrollView } from 'react-native';
-import { Input, Button } from 'react-native-elements';
-import { Feather, } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
+import { View, StyleSheet, Dimensions, Text, Switch } from 'react-native';
+import { Button, Input } from 'react-native-elements';
+import { ScrollView } from 'react-native-gesture-handler';
 import HeaderComms from '../../components/header';
+import { Feather } from '@expo/vector-icons'
+import { useNavigation } from '@react-navigation/native';
 
-export default function createUser() {
-    const [key, setKey] = useState(true);
+export default function EmployeeLogin() {
     const navigation = useNavigation();
+    const [enable, setEnable] = useState(false);
+    const [key, setKey] = useState(true);
 
     const showkey = () => setKey(prevent => !prevent)
 
-    const userOK = () => navigation.navigate('user-successful')
+    const toggle = () => setEnable(previousState => !previousState);
 
+    function NoPassword() {
+        navigation.navigate('change-password');
+    }
     
+    function Loading() {
+        navigation.navigate('loading-page');
+    }
+
 
     return (
         <ScrollView>
             <View style={styles.container}>
-                
+
                 <HeaderComms />
 
-                <View style={styles.form_container}>
-                    <Text style={styles.title_form}>Cadastrar</Text>
+                <View style={styles.form_content}>
+                    <Text style={styles.title_form} >Login</Text>
 
                     <Input 
-                        placeholder='Nome Completo'
+                        placeholder='Email'
                         placeholderTextColor='#FFFFFF'
                         style={styles.input_form}
                         inputContainerStyle={{ borderBottomColor: '#FFFFFF' }}
                         leftIcon={
                             <Feather 
-                                name="user"
+                                name="mail"
                                 size={24}
                                 color="#FFFFFF"
                             />
                         }
                     />
-                    <Input
-                        placeholder='Email'
-                        placeholderTextColor='#FFFFFF'
-                        inputContainerStyle={{ borderBottomColor: '#FFFFFF' }}
-                        style={styles.input_form}
-                        leftIcon={
-                            <Feather 
-                                name='mail'
-                                size={24}
-                                color= '#FFFFFF'
-                            />
-                        }
-                    />
+
                     <Input 
                         placeholder='Senha'
                         placeholderTextColor='#FFFFFF'
                         secureTextEntry={key? true: false}
-                        inputContainerStyle={{ borderBottomColor: '#FFFFFF' }}
                         style={styles.input_form}
+                        inputContainerStyle={{ borderBottomColor: '#FFFFFF' }}
+                        inputStyle={{ color: '#FFFFFF' }}
                         leftIcon={
                             <Feather 
                                 name="lock"
@@ -73,43 +71,61 @@ export default function createUser() {
                         }
                     />
 
+                    <View style={styles.password_content}>
+                        <Switch 
+                            onValueChange={toggle}
+                            trackColor={{ false: "#767577", true: "#81b0ff" }}
+                            thumbColor={enable ? "#00CA00" : "#f4f3f4"}
+                            value={enable}
+                            
+                        /><Text style={styles.switch_text}>Lembrar de mim</Text>
+                        <Button 
+                            buttonStyle={{
+                                backgroundColor: '#2A88F3',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                            }}
+                            title="Esqueci minha senha"
+                            titleStyle={{ fontFamily: 'Nunito_600SemiBold' }}
+                            onPress={NoPassword}
+                        >
+                        </Button>
+                    </View>
+
                     <View style={styles.button_submit} >
                         <Button 
-                            title='Cadastrar'
-                            onPress={userOK}
+                            title='Entrar'
+                            onPress={Loading}
                             titleStyle={{ fontFamily: 'Nunito_700Bold', fontSize: 24, color: '#2A88F3' }}
                             buttonStyle={{ 
                                 backgroundColor: '#FFFFFF', 
-                                width: 160, 
+                                width: 130, 
                                 height: 50, 
                                 borderRadius: 20,
                             }}
                         >
                         </Button>
-
                     </View>
-                    
 
                 </View>
             </View>
         </ScrollView>
     );
 }
-
+//Loading
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
 
         width: Dimensions.get('window').width,
         height: Dimensions.get('window').height,
 
-        alignItems: 'center',
-        justifyContent: 'center',
-
         backgroundColor: '#2A88F3',
     },
 
-    form_container: {
+    form_content: {
         width: 350,
         height: 530,
 
@@ -131,8 +147,9 @@ const styles = StyleSheet.create({
 
         justifyContent: 'center',
         alignItems:'center',
+
     },
-    
+
     input_form: {
         position: 'relative',
         
@@ -141,11 +158,34 @@ const styles = StyleSheet.create({
         color: '#FFFFFF',
     },
 
+    switch_text: {
+        position: 'absolute',
+        left: 48,
+
+        fontSize: 16,
+        color: '#FFFFFF',
+        fontFamily: 'Nunito_600SemiBold',
+    },
+
+    password_content: {
+        width: 350,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+    },
+
     button_submit: {
         flex: 1,
-        marginTop: 30,
+        marginTop: 50,
         alignItems: 'center',
         justifyContent: 'center',
     },
+
+    footer_btn: {
+        padding: 0,
+        alignItems: 'center',
+        justifyContent: 'center',
+    }
+
 
 })

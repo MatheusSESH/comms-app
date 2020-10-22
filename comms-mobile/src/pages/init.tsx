@@ -1,9 +1,10 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { Dimensions, StyleSheet, Text, View } from 'react-native';
+import { Dimensions, StyleSheet, View, Animated } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import { Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native'
+import { LinearGradient } from 'expo-linear-gradient';
 
 import HeaderComms from '../components/header';
 
@@ -16,18 +17,34 @@ export default function initPage() {
 
 
     return (
-        <View style={styles.container}>
-            
-            <HeaderComms />
+        
+            <View style={styles.container}>
+                
+                <LinearGradient
+                    colors={['rgba(0, 160, 390, 1)' ,'#2A88F3']}
+                    style={{
+                        position: 'absolute',
+                        left: 0,
+                        right: 0,
+                        top: 0,
+                        height: 500,
+                    }}
+                />
+                
+                <HeaderComms />
 
-            <StatusBar style="auto" />
+                <StatusBar style="auto" />
 
-            <RectButton style={styles.button}>
-                <Feather name="heart" size={30} color={"#fff"} onPress={LandingPage} />
-            </RectButton>
-        </View>
+                <RectButton style={styles.button}>
+                    <Feather name="heart" size={30} color={"#fff"} onPress={LandingPage} />
+                </RectButton>
+
+            </View>
+        
     );
 }
+
+
 
 const styles = StyleSheet.create({
     container: {
@@ -45,4 +62,6 @@ const styles = StyleSheet.create({
     button: {
         marginTop: 400,
     },
+
 });
+//

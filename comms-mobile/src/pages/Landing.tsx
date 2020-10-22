@@ -1,6 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
-import React from 'react';
-import { View, StyleSheet, Dimensions, Text } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
+import React, { useState } from 'react';
+import { View, StyleSheet, Dimensions } from 'react-native';
 import { Button } from 'react-native-elements';
 
 import  HeaderComms  from '../components/header';
@@ -9,60 +10,84 @@ export default function Landing() {
     const navigation = useNavigation();
 
     function StudentLogin () {
-        navigation.navigate('studentLogin');
+        navigation.navigate('student-login');
     }
     function TeacherLogin () {
-        navigation.navigate('loading-page');
+        navigation.navigate('teacher-login');
     }
     function EmployeeLogin () {
-        navigation.navigate('loading-page');
+        navigation.navigate('employee-login');
     }
 
     return (
         <View style={styles.container}>
             
+            <LinearGradient
+                    colors={['rgba(0, 160, 390, 1)' ,'#2A88F3']}
+                    style={{
+                        position: 'absolute',
+                        left: 0,
+                        right: 0,
+                        top: 0,
+                        height: 500,
+                    }}
+                />
+
             <HeaderComms />
 
             <View style={styles.middle_content}>
                 <Button
                     buttonStyle={{ 
-                        backgroundColor: 'rgba(76, 155, 245, 0.4)', 
+                        backgroundColor: '#E9ECEF', 
                         width: 110, 
                         height: 400, 
                         borderRadius: 20,
                     }}
                     title='Professor'
-                    titleStyle={{ color: '#FFF' }}
+                    titleStyle={{ 
+                        color: '#2A88F3',
+                        fontFamily: 'Nunito_700Bold',
+                        fontSize: 16,
+                     }}
                     onPress={TeacherLogin}
                 >
                 </Button>
+
                 <Button 
                     buttonStyle={{ 
-                        backgroundColor: 'rgba(76, 155, 245, 0.4)', 
+                        backgroundColor: '#E9ECEF', 
                         width: 110, 
                         height: 400, 
                         borderRadius: 20,
+
                     }}
                     title='Aluno'
-                    titleStyle={{ color: '#FFF' }}
+                    titleStyle={{ 
+                        color: '#2A88F3',
+                        fontFamily: 'Nunito_700Bold',
+                        fontSize: 16,
+                     }}
                     onPress={StudentLogin}
                 >
                 </Button>
+
                 <Button
                     buttonStyle={{ 
-                        backgroundColor: 'rgba(76, 155, 245, 0.4)', 
+                        backgroundColor: '#E9ECEF', 
                         width: 110, 
                         height: 400, 
                         borderRadius: 20,
                     }}
                     title='Funcionário'
-                    titleStyle={{ color: '#FFF' }}
+                    titleStyle={{ 
+                        color: '#2A88F3',
+                        fontFamily: 'Nunito_700Bold',
+                        fontSize: 16
+                    }}
                     onPress={EmployeeLogin}
                 >
                 </Button>
 
-
-                
             </View>
         </View>
     );

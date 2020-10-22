@@ -2,28 +2,97 @@ import React from 'react';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import  Header  from '../components/header-title';
 
-import initPage from '../pages/init' ;
+
+//Student Routes 
 import loginStudent from '../pages/student-pages/login';
-import Landing from '../pages/Landing';
 import createUser from '../pages/student-pages/createUser';
-import changePassword from '../pages/student-pages/no-password';
 import userSuccessful from '../pages/student-pages/signUp-successfull';
+import changePasswordSuccessful from '../pages/student-pages/changePasswordSuccessful'
+
+//Teacher / Employee Routes
+import TeacherLogin from '../pages/teacher-pages/login';
+import EmployeeLogin from '../pages/employee-pages/login';
+
+// Routes for all
+import initPage from '../pages/init' ; 
+import Landing from '../pages/Landing';
+import changePassword from '../pages/student-pages/no-password';
 import loadingPage from '../pages/Loading';
+
 
 const { Navigator, Screen } = createStackNavigator();
 
 export default function Routes(){
     return (
         <NavigationContainer>
-            <Navigator>
-                <Screen name="pageInit" component={initPage} options={{ headerShown: false }} />
-                <Screen name="landing" component={Landing} options={{ headerShown: false }} />
-                <Screen name="studentLogin" component={loginStudent} options={{ headerShown: false }} />
-                <Screen name="create-user" component={createUser} options={{ headerShown: false }} />
-                <Screen name="loading-page" component={loadingPage} options={{ headerShown: false }} />
-                <Screen name="change-password" component={changePassword} options={{ headerShown: false }} />
-                <Screen name="user-successful" component={userSuccessful} options={{ headerShown: false }} />
+            <Navigator screenOptions={{ headerShown: false }} >
+                <Screen 
+                    name="pageInit" 
+                    component={initPage} 
+                />
+               
+                <Screen 
+                    name="landing" 
+                    component={Landing} 
+                />
+                
+                <Screen 
+                    name="student-login" 
+                    component={loginStudent} 
+                />
+                
+                <Screen 
+                    name="create-user" 
+                    component={createUser} 
+                />
+                
+                <Screen 
+                    name="loading-page" 
+                    component={loadingPage} 
+                />
+                
+                <Screen 
+                    name="change-password" 
+                    component={changePassword} 
+                />
+                
+                <Screen 
+                    name="changePasswordSuccessful" 
+                    component={changePasswordSuccessful}
+                    options={{ 
+                        headerShown: true, 
+                            header: () => <Header 
+                            showCancel={false} 
+                            title="Voltar ao menu de login" 
+                            />
+                        }} 
+                />
+                
+                <Screen name="user-successful" 
+                    component={userSuccessful} 
+                    options={{ 
+                        headerShown: true, 
+                            header: () => <Header 
+                            showCancel={false} 
+                            title="Voltar ao menu de login" 
+                            />
+                        }} 
+                />
+
+
+                <Screen 
+                    name="teacher-login" 
+                    component={TeacherLogin} 
+                />
+
+
+                <Screen 
+                    name="employee-login"
+                    component={EmployeeLogin}
+                />
+
             </Navigator> 
         </NavigationContainer>
     );

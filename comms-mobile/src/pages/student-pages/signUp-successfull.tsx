@@ -1,7 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { View, Text, StyleSheet, Dimensions } from 'react-native'
-import { Button } from 'react-native-elements';
 import HeaderComms from '../../components/header';
  
 export default function userSuccessful(){
@@ -53,7 +52,7 @@ const styles = StyleSheet.create({
     title: {
         fontFamily: 'Nunito_700Bold',
         fontSize: 24,
-        color: '#FFF',
+        color: '#FFFFFF',
     },
 
     txt: {
@@ -63,7 +62,7 @@ const styles = StyleSheet.create({
 
         marginTop: 30,
 
-        color: '#FFF',
+        color: '#FFFFFF',
 
         justifyContent: 'center',
         alignItems: 'center',
