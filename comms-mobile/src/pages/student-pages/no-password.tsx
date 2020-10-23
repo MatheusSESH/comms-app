@@ -5,6 +5,7 @@ import { Feather } from '@expo/vector-icons'
 import HeaderComms from '../../components/header';
 import { ScrollView } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
+import { LinearGradient } from 'expo-linear-gradient';
 
 export default function changePassword() {
     const navigation = useNavigation();
@@ -16,6 +17,17 @@ export default function changePassword() {
     return (
         <ScrollView>
             <View style={styles.container}>
+
+                <LinearGradient
+                    colors={['rgba(0, 160, 390, 1)' ,'#2A88F3']}
+                    style={{
+                        position: 'absolute',
+                        left: 0,
+                        right: 0,
+                        top: 0,
+                        height: 500,
+                    }}
+                />
 
                 <HeaderComms />
 

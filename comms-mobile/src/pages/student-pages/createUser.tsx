@@ -4,6 +4,7 @@ import { Input, Button } from 'react-native-elements';
 import { Feather, } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import HeaderComms from '../../components/header';
+import { LinearGradient } from 'expo-linear-gradient';
 
 export default function createUser() {
     const [key, setKey] = useState(true);
@@ -13,12 +14,21 @@ export default function createUser() {
 
     const userOK = () => navigation.navigate('user-successful')
 
-    
-
     return (
         <ScrollView>
             <View style={styles.container}>
                 
+                <LinearGradient
+                    colors={['rgba(0, 160, 390, 1)' ,'#2A88F3']}
+                    style={{
+                        position: 'absolute',
+                        left: 0,
+                        right: 0,
+                        top: 0,
+                        height: 500,
+                    }}
+                />
+
                 <HeaderComms />
 
                 <View style={styles.form_container}>
@@ -114,7 +124,7 @@ const styles = StyleSheet.create({
         height: 530,
 
         position: 'absolute',
-        bottom: 50,
+        bottom: 0,
 
         flexDirection: 'column',
         alignItems: 'center',
@@ -143,7 +153,6 @@ const styles = StyleSheet.create({
 
     button_submit: {
         flex: 1,
-        marginTop: 30,
         alignItems: 'center',
         justifyContent: 'center',
     },

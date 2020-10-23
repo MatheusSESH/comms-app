@@ -1,4 +1,5 @@
 import { useNavigation } from '@react-navigation/native';
+import { LinearGradient } from 'expo-linear-gradient';
 import React from 'react';
 import { View, Text, StyleSheet, Dimensions } from 'react-native'
 import HeaderComms from '../../components/header';
@@ -9,6 +10,17 @@ export default function userSuccessful(){
 
     return(
         <View style={styles.container}>
+
+            <LinearGradient
+                colors={['rgba(0, 160, 390, 1)' ,'#2A88F3']}
+                style={{
+                    position: 'absolute',
+                    left: 0,
+                    right: 0,
+                    top: 0,
+                    height: 500,
+                }}
+            />
 
             <HeaderComms />
 

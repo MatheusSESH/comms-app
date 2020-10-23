@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, Dimensions, ScrollView } from 'react-native';
+import { StyleSheet, View, Text, Dimensions, ScrollView, Switch } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Input, Button } from 'react-native-elements';
-import { Switch } from 'react-native';
 import { Feather } from '@expo/vector-icons'
 import HeaderComms from '../../components/header';
 
@@ -155,6 +154,7 @@ const styles = StyleSheet.create({
     title_form: {
         width: 350,
 
+        paddingTop: 50,
         fontSize: 30,
         color: '#FFFFFF',
         fontFamily: 'Nunito_700Bold',

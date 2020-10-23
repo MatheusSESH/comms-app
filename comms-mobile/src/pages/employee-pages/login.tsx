@@ -5,6 +5,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 import HeaderComms from '../../components/header';
 import { Feather } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native';
+import { LinearGradient } from 'expo-linear-gradient';
 
 export default function EmployeeLogin() {
     const navigation = useNavigation();
@@ -27,6 +28,17 @@ export default function EmployeeLogin() {
     return (
         <ScrollView>
             <View style={styles.container}>
+
+                <LinearGradient
+                    colors={['rgba(0, 160, 390, 1)' ,'#2A88F3']}
+                    style={{
+                        position: 'absolute',
+                        left: 0,
+                        right: 0,
+                        top: 0,
+                        height: 500,
+                    }}
+                />
 
                 <HeaderComms />
 
@@ -140,10 +152,12 @@ const styles = StyleSheet.create({
     title_form: {
         width: 350,
 
+        paddingTop: 50,
+        marginBottom: 40,
+
         fontSize: 30,
         color: '#FFFFFF',
         fontFamily: 'Nunito_700Bold',
-        marginBottom: 40,
 
         justifyContent: 'center',
         alignItems:'center',

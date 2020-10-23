@@ -11,6 +11,8 @@ export default function TeacherLogin() {
     const [enable, setEnable] = useState(false);
     const [key, setKey] = useState(true);
 
+    const [loading, setLoading] = useState(true);
+
     const showkey = () => setKey(prevent => !prevent)
 
     const toggle = () => setEnable(previousState => !previousState);
@@ -22,7 +24,6 @@ export default function TeacherLogin() {
     function Loading() {
         navigation.navigate('loading-page');
     }
-
 
     return (
         <ScrollView>
@@ -128,6 +129,8 @@ const styles = StyleSheet.create({
     form_content: {
         width: 350,
         height: 530,
+
+        paddingTop: 50,
 
         position: 'absolute',
         bottom: 50,
