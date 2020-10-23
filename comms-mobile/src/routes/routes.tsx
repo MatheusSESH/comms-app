@@ -16,7 +16,6 @@ import TeacherLogin from '../pages/teacher-pages/login';
 import EmployeeLogin from '../pages/employee-pages/login';
 
 // Routes for all
-import initPage from '../pages/init' ; 
 import Landing from '../pages/Landing';
 import changePassword from '../pages/student-pages/no-password';
 import loadingPage from '../pages/Loading';
@@ -28,11 +27,6 @@ export default function Routes(){
     return (
         <NavigationContainer>
             <Navigator screenOptions={{ headerShown: false }} >
-                <Screen 
-                    name="pageInit" 
-                    component={initPage} 
-                />
-               
                 <Screen 
                     name="landing" 
                     component={Landing} 
