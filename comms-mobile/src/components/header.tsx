@@ -2,7 +2,7 @@ import React from 'react';
 
 import { View, Text, StyleSheet } from 'react-native';
 
-export default function HeaderComms(){
+export default function HeaderComms() {
     return(
         <View style={styles.header_content}>
             <Text style={styles.header}>Comms</Text>

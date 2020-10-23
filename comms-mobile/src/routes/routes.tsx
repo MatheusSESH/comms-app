@@ -1,23 +1,18 @@
 import React from 'react';
-
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+
 import  Header  from '../components/header-title';
 
-
-//Student Routes 
-import loginStudent from '../pages/student-pages/login';
-import createUser from '../pages/student-pages/createUser';
-import userSuccessful from '../pages/student-pages/signUp-successfull';
-import changePasswordSuccessful from '../pages/student-pages/changePasswordSuccessful'
-
-//Teacher / Employee Routes
-import TeacherLogin from '../pages/teacher-pages/login';
-import EmployeeLogin from '../pages/employee-pages/login';
+//Login Routes 
+import loginStudent from '../pages/login/login';
+import createUser from '../pages/login/createUser';
+import userSuccessful from '../pages/login/signUp-successfull';
+import changePasswordSuccessful from '../pages/login/changePasswordSuccessful'
+import changePassword from '../pages/login/no-password';
 
 // Routes for all
 import Landing from '../pages/Landing';
-import changePassword from '../pages/student-pages/no-password';
 import loadingPage from '../pages/Loading';
 
 
@@ -29,17 +24,31 @@ export default function Routes(){
             <Navigator screenOptions={{ headerShown: false }} >
                 <Screen 
                     name="landing" 
-                    component={Landing} 
+                    component={Landing}
                 />
                 
                 <Screen 
-                    name="student-login" 
-                    component={loginStudent} 
+                    name="login" 
+                    component={loginStudent}
+                    options={{ headerShown: true,
+                        header: () => <Header 
+                        title="Comms" 
+                        showCancel={false} 
+                        />
+                    }}
                 />
                 
                 <Screen 
                     name="create-user" 
-                    component={createUser} 
+                    component={createUser}
+                    options={{ 
+                        headerShown: true,
+                        header: () => <Header 
+                            title='Comms'
+                            showArrow={true}
+                            showCancel={true}
+                        />
+                    }}
                 />
                 
                 <Screen 
@@ -49,7 +58,15 @@ export default function Routes(){
                 
                 <Screen 
                     name="change-password" 
-                    component={changePassword} 
+                    component={changePassword}
+                    options={{ 
+                        headerShown: true,
+                        header: () => <Header 
+                            title='Voltar ao login'
+                            showArrow={true}
+                            showCancel={false}
+                        />
+                    }}
                 />
                 
                 <Screen 
@@ -58,8 +75,9 @@ export default function Routes(){
                     options={{ 
                         headerShown: true, 
                             header: () => <Header 
-                            showCancel={false} 
-                            title="Voltar ao menu de login" 
+                            showCancel={true} 
+                            showArrow={false}
+                            title="Voltar para página inicial" 
                             />
                         }} 
                 />
@@ -69,22 +87,11 @@ export default function Routes(){
                     options={{ 
                         headerShown: true, 
                             header: () => <Header 
-                            showCancel={false} 
-                            title="Voltar ao menu de login" 
+                            showCancel={true} 
+                            showArrow={false}
+                            title="Voltar para página inicial" 
                             />
                         }} 
-                />
-
-
-                <Screen 
-                    name="teacher-login" 
-                    component={TeacherLogin} 
-                />
-
-
-                <Screen 
-                    name="employee-login"
-                    component={EmployeeLogin}
                 />
 
             </Navigator> 

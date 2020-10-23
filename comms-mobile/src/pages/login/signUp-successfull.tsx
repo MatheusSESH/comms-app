@@ -1,7 +1,9 @@
-import { useNavigation } from '@react-navigation/native';
-import { LinearGradient } from 'expo-linear-gradient';
 import React from 'react';
+import { useNavigation } from '@react-navigation/native';
 import { View, Text, StyleSheet, Dimensions } from 'react-native'
+
+import BackgroundCustom from '../../components/BackgroundCustom';
+
 import HeaderComms from '../../components/header';
  
 export default function userSuccessful(){
@@ -11,28 +13,17 @@ export default function userSuccessful(){
     return(
         <View style={styles.container}>
 
-            <LinearGradient
-                colors={['rgba(0, 160, 390, 1)' ,'#2A88F3']}
-                style={{
-                    position: 'absolute',
-                    left: 0,
-                    right: 0,
-                    top: 0,
-                    height: 500,
-                }}
-            />
+            <BackgroundCustom />
 
-            <HeaderComms />
-
-            <View style={styles.text_container}>
-
-                <Text style={styles.title} >Maravilha!</Text>
-
-                <Text style={styles.txt}>
-                    Assim que sua instiuição de ensino confirmar seu cadastro você será um dos nossos.
-                </Text>
-
+            <View style={styles.titleComms}>
+                <HeaderComms />
             </View>
+
+            <Text style={styles.title}>Maravilha!</Text>
+
+            <Text style={styles.txt}>
+                Assim que sua instiuição de ensino confirmar seu cadastro você será um dos nossos.
+            </Text>
 
         </View>
     );
@@ -50,29 +41,34 @@ const styles = StyleSheet.create({
         backgroundColor: '#2A88F3',
     },
 
-    text_container: {
-        width: 350,
-        height: 530,
-
-        flex: 1,
-
+    titleComms: {
+        position: 'absolute',
+        top: 80,
+        
         justifyContent: 'center',
         alignItems: 'center',
-        flexDirection: 'column',
     },
 
     title: {
+        position: 'relative',
+        top: 20,
+
         fontFamily: 'Nunito_700Bold',
         fontSize: 24,
         color: '#FFFFFF',
     },
 
     txt: {
+        width: 350,
+
+        position: 'relative',
+        top: 30,
+
         fontFamily: 'Nunito_600SemiBold',
         fontSize: 18,
         lineHeight: 24,
 
-        marginTop: 30,
+        marginTop: 20,
 
         color: '#FFFFFF',
 

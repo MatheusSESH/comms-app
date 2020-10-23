@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet, Text, Dimensions } from 'react-native';
 import { BorderlessButton } from 'react-native-gesture-handler';
 import { Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
@@ -7,9 +7,10 @@ import { useNavigation } from '@react-navigation/native';
 interface HeaderProps {
     title: string;
     showCancel?: boolean,
+    showArrow?: boolean,
 }
 
-export default function Header({ title, showCancel = true }: HeaderProps ) {
+export default function Header({ title, showCancel = true, showArrow = true }: HeaderProps ) {
     
     const navigation = useNavigation();
     
@@ -19,11 +20,26 @@ export default function Header({ title, showCancel = true }: HeaderProps ) {
 
     return(
         <View style={styles.container} >
-            <BorderlessButton onPress={handleGoBackToAppHomeage}>
-                <Feather name="x" size={24} color="#FF669D" />
-            </BorderlessButton>
 
+            { showArrow ? (
+                <BorderlessButton onPress={navigation.goBack}>
+                    <Feather name="arrow-left" size={24} color="#15b6d6" />
+                </BorderlessButton>
+            ) : (
+                <View />
+            )}
+            
             <Text style={styles.title} >{ title }</Text>
+
+            { showCancel ? (
+                <BorderlessButton onPress={handleGoBackToAppHomeage}>
+                    <Feather name="x" size={24} color="#ff669d" />
+                </BorderlessButton>
+            ) : (
+                <View />
+            ) }     
+
+            
 
         </View>
     );
@@ -31,11 +47,15 @@ export default function Header({ title, showCancel = true }: HeaderProps ) {
 
 const styles = StyleSheet.create({
     container: {
+        width: Dimensions.get('window').width,
+
+        position: 'absolute',
+        paddingTop: 44,
         padding: 24,
+
         backgroundColor: '#f9fafc',
         borderBottomWidth: 1,
         borderColor: '#dde3f0',
-        paddingTop: 44,
 
         flexDirection: 'row',
         justifyContent: 'space-between',

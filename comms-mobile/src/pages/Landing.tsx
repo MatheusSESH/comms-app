@@ -1,109 +1,34 @@
-import React, { useState } from 'react';
-import { View, StyleSheet, Dimensions, Text } from 'react-native';
+import React from 'react';
+import { View, StyleSheet, Dimensions,Text } from 'react-native';
+import HeaderComms from '../components/header';
+import BackgroundCustom from '../components/BackgroundCustom';
+import { RectButton } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
-import { LinearGradient } from 'expo-linear-gradient';
-import { Button } from 'react-native-elements';
 
-import  HeaderComms  from '../components/header';
+export default function LandingPage(){
 
-export default function Landing() {
     const navigation = useNavigation();
-    const [loading, setLoading] = useState(true);
 
-    function handleContent() { 
-        new Promise(function(resolve, reject) { 
-            setTimeout(resolve, 2000); 
-        }).then(function() { 
-           setLoading(false); 
-        }); 
-    } 
-
-    function StudentLogin () {
-        navigation.navigate('student-login');
+    function goToLogin() { 
+        navigation.navigate('login')
     }
-    function TeacherLogin () {
-        navigation.navigate('teacher-login');
-    }
-    function EmployeeLogin () {
-        navigation.navigate('employee-login');
-    }
+    
+    return(
+        <View  style={styles.container}>
 
-    return (
-        <View style={styles.container}>
-
-
-            <LinearGradient
-                colors={['rgba(0, 160, 390, 1)' ,'#2A88F3']}
-                style={{
-                    position: 'absolute',
-                    left: 0,
-                    right: 0,
-                    top: 0,
-                    height: 500,
-                }}
-            />
+            <BackgroundCustom /> 
 
             <HeaderComms />
 
-            <View style={styles.middle_content}>
- 
-            
-                    
-                    <Button
-                        buttonStyle={{ 
-                            backgroundColor: '#E9ECEF', 
-                            width: 110, 
-                            height: 400, 
-                            borderRadius: 20,
-                            zIndex: 1,
-                        }}
-                        title='Professor'
-                        titleStyle={{ 
-                            color: '#2A88F3',
-                            fontFamily: 'Nunito_600SemiBold',
-                            fontSize: 16,
-                        }}
-                        onPress={TeacherLogin}
-                    >
-                    </Button>
+            <RectButton 
+                style={styles.button}
+                onPress={goToLogin}
+            >
+                <Text style={styles.txtButton}>Entrar</Text>
+            </RectButton>
 
-                    <Button
-                        buttonStyle={{ 
-                            backgroundColor: '#E9ECEF', 
-                            width: 110, 
-                            height: 400, 
-                            borderRadius: 20,
-                            zIndex: 1,
-                        }}
-                        title='Aluno'
-                        titleStyle={{ 
-                            color: '#2A88F3',
-                            fontFamily: 'Nunito_600SemiBold',
-                            fontSize: 16,
-                        }}
-                        onPress={StudentLogin}
-                    >
-                    </Button>
+            <Text style={styles.footer}>Facilitando a comunicação no ambiente escolar</Text>
 
-                    <Button
-                        buttonStyle={{ 
-                            backgroundColor: '#E9ECEF', 
-                            width: 110, 
-                            height: 400, 
-                            borderRadius: 20,
-                            zIndex: 1,
-                        }}
-                        title='Funcionário'
-                        titleStyle={{ 
-                            color: '#2A88F3',
-                            fontFamily: 'Nunito_600SemiBold',
-                            fontSize: 16,
-                        }}
-                        onPress={EmployeeLogin}
-                    >
-                    </Button>
-
-            </View>
         </View>
     );
 }
@@ -120,28 +45,36 @@ const styles = StyleSheet.create({
         backgroundColor: '#2A88F3',
     },
 
-    header: {
-        position: 'absolute',
-        top: 70,
-    },
+    button: {
+        width: 130,
+        height: 50,
+        backgroundColor: '#FFF',
 
-    title: {
-        fontSize: 48,
-        color: '#FFF',
-        fontFamily: 'Nunito_700Bold',
-    },
+        borderRadius: 20,
 
-    middle_content: {
-        width: 350,
-
-        position: 'absolute',
-        bottom: 100,
-
-        flexDirection: 'row',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
         alignItems: 'center',
+        textAlign: 'center',
+
+        position: 'absolute',
+        bottom: 120,
     },
 
-    
+    txtButton: {
+        fontFamily: 'Nunito_700Bold',
+        fontSize: 20,
+        color: '#2A88F3',
+    },
 
-});
+    footer: {
+        position: 'absolute',
+        paddingBottom: 50,
+        bottom: 0,
+
+        color: '#FFF',
+
+        fontFamily: 'Nunito_600SemiBold',
+        fontSize: 16,
+    }
+
+})

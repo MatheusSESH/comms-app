@@ -2,21 +2,13 @@ import React from 'react';
 import { Dimensions, View, StyleSheet,Text, ActivityIndicator } from 'react-native';
 import { Feather } from '@expo/vector-icons'
 import { LinearGradient } from 'expo-linear-gradient';
+import BackgroundCustom from '../components/BackgroundCustom';
 
 export default function LoadingPage() {
     return(
         <View style={styles.container}>
 
-            <LinearGradient
-                colors={['rgba(0, 160, 390, 1)' ,'#2A88F3']}
-                style={{
-                    position: 'absolute',
-                    left: 0,
-                    right: 0,
-                    top: 0,
-                    height: 500,
-                }}
-            />      
+        <BackgroundCustom />      
 
             <View style={styles.content_title}>
                 <Text style={styles.text}>A página que vc procura ainda não esta pronta</Text>

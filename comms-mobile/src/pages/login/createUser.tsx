@@ -5,6 +5,8 @@ import { Feather, } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import HeaderComms from '../../components/header';
 import { LinearGradient } from 'expo-linear-gradient';
+import BackgroundCustom from '../../components/BackgroundCustom';
+import { RectButton } from 'react-native-gesture-handler';
 
 export default function createUser() {
     const [key, setKey] = useState(true);
@@ -18,22 +20,11 @@ export default function createUser() {
         <ScrollView>
             <View style={styles.container}>
                 
-                <LinearGradient
-                    colors={['rgba(0, 160, 390, 1)' ,'#2A88F3']}
-                    style={{
-                        position: 'absolute',
-                        left: 0,
-                        right: 0,
-                        top: 0,
-                        height: 500,
-                    }}
-                />
+            <BackgroundCustom /> 
 
-                <HeaderComms />
+                <Text style={styles.title_form}>Cadastrar</Text>
 
                 <View style={styles.form_container}>
-                    <Text style={styles.title_form}>Cadastrar</Text>
-
                     <Input 
                         placeholder='Nome Completo'
                         placeholderTextColor='#FFFFFF'
@@ -82,25 +73,18 @@ export default function createUser() {
                             />
                         }
                     />
-
-                    <View style={styles.button_submit} >
-                        <Button 
-                            title='Cadastrar'
-                            onPress={userOK}
-                            titleStyle={{ fontFamily: 'Nunito_700Bold', fontSize: 24, color: '#2A88F3' }}
-                            buttonStyle={{ 
-                                backgroundColor: '#FFFFFF', 
-                                width: 160, 
-                                height: 50, 
-                                borderRadius: 20,
-                            }}
-                        >
-                        </Button>
-
-                    </View>
-                    
-
                 </View>
+
+            
+                <RectButton 
+                    onPress={userOK}
+                    style={styles.buttonSubmit}  
+                >
+                    <Text style={styles.textButtonSubmit}>Cadastrar</Text>
+
+                </RectButton>
+
+                    
             </View>
         </ScrollView>
     );
@@ -119,30 +103,31 @@ const styles = StyleSheet.create({
         backgroundColor: '#2A88F3',
     },
 
+    title_form: {
+        position: 'absolute',
+        top: 170,
+        left: 40,
+
+        fontSize: 30,
+        color: '#FFFFFF',
+        fontFamily: 'Nunito_700Bold',
+
+        justifyContent: 'center',
+        alignItems:'center',
+    },
+
     form_container: {
         width: 350,
-        height: 530,
 
-        position: 'absolute',
-        bottom: 0,
+        position: 'relative',
+        top: 30,
 
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
     },
 
-    title_form: {
-        width: 350,
 
-        fontSize: 30,
-        color: '#FFFFFF',
-        fontFamily: 'Nunito_700Bold',
-        marginBottom: 40,
-
-        justifyContent: 'center',
-        alignItems:'center',
-    },
-    
     input_form: {
         position: 'relative',
         
@@ -151,10 +136,24 @@ const styles = StyleSheet.create({
         color: '#FFFFFF',
     },
 
-    button_submit: {
-        flex: 1,
+
+    buttonSubmit: {
+        width: 170,
+        height: 60,
+
+        position: 'absolute',
+        bottom: 100,
+
+        borderRadius: 20,
+
         alignItems: 'center',
         justifyContent: 'center',
+        backgroundColor: '#FFFFFF', 
+    },
+    textButtonSubmit: {
+        fontFamily: 'Nunito_700Bold', 
+        fontSize: 24, 
+        color: '#2A88F3',
     },
 
 })
