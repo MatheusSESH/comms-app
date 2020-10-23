@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     textMessage: {
         width: 380,
         
-        fontFamily: 'Nunito_700Bold',
+        fontFamily: 'Nunito_600SemiBold',
         fontSize: 18,
         color: '#FFFFFF',
 
