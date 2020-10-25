@@ -5,6 +5,7 @@ import BackgroundCustom from '../components/BackgroundCustom';
 import { RectButton } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
 
+
 export default function LandingPage(){
 
     const navigation = useNavigation();

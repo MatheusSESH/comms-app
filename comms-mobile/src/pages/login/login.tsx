@@ -1,15 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { StyleSheet, View, Text, Dimensions, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Input } from 'react-native-elements';
 import { Feather } from '@expo/vector-icons'
 import { RectButton } from 'react-native-gesture-handler';
 
+import AuthContext from '../../context/auth';
+
 import BackgroundCustom from '../../components/BackgroundCustom';
 
 export default function loginStudent() {
     const navigation = useNavigation();
     const [key, setKey] = useState(true);
+    const [email , setEmail] = useState('');
+    const [password, setPassword] = useState('')
+
+    const { signed, signIn } = useContext(AuthContext);
+
+    console.log(signed)
+
+    async function handleSignIn() {
+        signIn();
+    }
 
     const showkey = () => setKey(prevent => !prevent)
 
@@ -19,10 +31,6 @@ export default function loginStudent() {
     function CreateStudent() {
         navigation.navigate('create-user');
     }
-    
-    function Loading() {
-        navigation.navigate('loading-page');
-    } 
 
     return (
     <ScrollView>
@@ -34,6 +42,8 @@ export default function loginStudent() {
             
             <View style={styles.form_content}>
                 <Input
+                    value={email}
+                    onChangeText={setEmail}
                     placeholder='Email'
                     placeholderTextColor='#FFFFFF'
                     style={styles.input_form}
@@ -48,6 +58,8 @@ export default function loginStudent() {
                 />
 
                 <Input 
+                    onChangeText={setPassword}
+                    value={password}
                     placeholder='Senha'
                     placeholderTextColor='#FFFFFF'
                     secureTextEntry={key? true: false}
@@ -82,7 +94,7 @@ export default function loginStudent() {
 
                 <RectButton 
                     style={styles.buttonSubmit}
-                    onPress={Loading}
+                    onPress={handleSignIn}
                 >
                     <Text style={styles.txtButtonSubmit}>Entrar</Text>
                 </RectButton>

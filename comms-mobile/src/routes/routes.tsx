@@ -15,10 +15,9 @@ import changePassword from '../pages/login/no-password';
 import Landing from '../pages/Landing';
 import loadingPage from '../pages/Loading';
 
-
 const { Navigator, Screen } = createStackNavigator();
 
-export default function Routes(){
+export default function AuthRoutes(){
     return (
         <NavigationContainer>
             <Navigator screenOptions={{ headerShown: false }} >
@@ -36,8 +35,9 @@ export default function Routes(){
                         showCancel={false} 
                         />
                     }}
+                    
                 />
-                
+
                 <Screen 
                     name="create-user" 
                     component={createUser}
@@ -93,7 +93,6 @@ export default function Routes(){
                             />
                         }} 
                 />
-
             </Navigator> 
         </NavigationContainer>
     );
