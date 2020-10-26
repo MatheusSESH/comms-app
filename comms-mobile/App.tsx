@@ -6,6 +6,7 @@ import { AuthProvider } from './src/context/auth';
 
 import Routes from './src/routes/index.routes';
 
+
 export default function App() {
  const [fontsLoaded] = useFonts({
   Nunito_600SemiBold,
@@ -18,7 +19,7 @@ export default function App() {
  }
 
   return(
-    <AuthProvider>
+    <AuthProvider >
       <Routes />
     </AuthProvider>
   );

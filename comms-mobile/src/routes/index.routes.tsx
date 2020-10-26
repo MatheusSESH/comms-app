@@ -6,6 +6,7 @@ import AuthContext from '../context/auth';
 import AuthRoutes from './Routes'
 import TeacherRoutes from './teacher.routes';
 
+
 const Routes: React.FC = () => {
     const { signed, loading } = useContext(AuthContext);
 
