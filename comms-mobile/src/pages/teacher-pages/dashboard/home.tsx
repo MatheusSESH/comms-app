@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Dimensions, StyleSheet, View, Text, FlatList , SafeAreaView, TouchableOpacity } from 'react-native';
+import { Dimensions, StyleSheet, View, Text, FlatList , TouchableOpacity, ScrollView, SafeAreaView } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 
 import HeaderTeacherHomePage from '../../../components/teacher/header';
@@ -37,30 +37,53 @@ export default function TeacherHomePage() {
             description: 'descrição',
             text: 'Contexto: Greyhound divisively hello coldly wonderfully marginally far upon excluding.'
         },
+        {
+            id: 5,
+            title: 'titulo',
+            description: 'descrição',
+            text: 'Contexto: Greyhound divisively hello coldly wonderfully marginally far upon excluding.'
+        },
+        {
+            id: 6,
+            title: 'titulo',
+            description: 'descrição',
+            text: 'Contexto: Greyhound divisively hello coldly wonderfully marginally far upon excluding.'
+        },
+        {
+            id: 7,
+            title: 'titulo',
+            description: 'descrição',
+            text: 'Contexto: Greyhound divisively hello coldly wonderfully marginally far upon excluding.'
+        },
     ]);
 
-    return (
-        <View style={styles.container} >
-                
-            <HeaderTeacherHomePage />
+    function cardList({ item }: any) {
+        return (
+            <View key={item.id} style={styles.card}>
+                <Text style={styles.cardTitle}>{item.title}</Text>
+                <Text style={styles.cardDescription}>{item.description}</Text>
+                <Text style={styles.cardText}>{item.text}</Text>
 
-            <Text>Sesh eh Boi</Text>
-
-            <View style={styles.cardsContainer}>
-                {cards.map((card) => {
-                    <View key={card.id}>
-                        <Text>{card.title}</Text>
-                        <Text>{card.description}</Text>
-                        <Text>{card.text}</Text>
-                
-                        <TouchableOpacity onPress={() => {}}>
-                            <Text>Ver</Text>
-                        </TouchableOpacity>
-                    </View>
-                })}
+                <TouchableOpacity onPress={() => { } } style={styles.cardButton}>
+                    <Text style={styles.cardButtonText}>Detalhes</Text>
+                </TouchableOpacity>
             </View>
+        );
+    }
 
-        </View>
+    return (
+            <View style={styles.container}>
+                
+                <HeaderTeacherHomePage />                   
+
+                    <FlatList
+                        data={cards}
+                        contentContainerStyle={styles.cardsContainer}
+                        renderItem={cardList}
+                    >
+                    </FlatList>
+                
+            </View>
     );
 }
 
@@ -77,29 +100,54 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
 
-
-    scrollContent:{
-        backgroundColor: '#000',
-    },
-
-
     cardsContainer: {
-        width: 350,
+        paddingHorizontal: 15,
 
-        elevation: 10,
+        paddingTop: 80 ,
 
-        position: 'absolute',
-
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#999999'
-
+        position: 'relative',
     },
 
-    item: {
+    card: {
         padding: 20,
-        marginVertical: 8,
-        marginHorizontal: 16,
-      },
 
+        borderRadius: 20,
+        backgroundColor: '#FFF',
+
+        marginVertical: 20,
+        marginHorizontal: 10,
+
+        elevation: 10
+    },
+    cardTitle: {
+        color:  '#000',
+        fontFamily: 'Nunito_700Bold',
+        fontSize: 20,
+    },
+    cardDescription: {
+        color: '#7777',
+        fontFamily: 'Nunito_600SemiBold',
+        fontSize: 14,
+        marginBottom: 10,
+    },
+    cardText: {
+        fontFamily: 'Nunito_600SemiBold',
+        fontSize: 14,
+        marginBottom: 15,
+    },
+    cardButton: {
+        width: 80,
+        height: 35,
+
+        borderRadius: 6,        
+        backgroundColor: '#2A88F3',
+        
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    cardButtonText: {
+        color: '#FFF',
+        fontFamily: 'Nunito_600SemiBold',
+        fontSize: 14,
+    },
 });
