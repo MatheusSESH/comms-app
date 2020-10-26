@@ -57,14 +57,14 @@ export default function TeacherHomePage() {
         },
     ]);
 
-    function cardList({ item }: any) {
+    function cardList({item}: {item: DataProps}) {
         return (
             <View key={item.id} style={styles.card}>
                 <Text style={styles.cardTitle}>{item.title}</Text>
                 <Text style={styles.cardDescription}>{item.description}</Text>
                 <Text style={styles.cardText}>{item.text}</Text>
 
-                <TouchableOpacity onPress={() => { } } style={styles.cardButton}>
+                <TouchableOpacity style={styles.cardButton}>
                     <Text style={styles.cardButtonText}>Detalhes</Text>
                 </TouchableOpacity>
             </View>
@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
         elevation: 10
     },
     cardTitle: {
-        color:  '#000',
+        color:  '#010403',
         fontFamily: 'Nunito_700Bold',
         fontSize: 20,
     },
@@ -134,6 +134,8 @@ const styles = StyleSheet.create({
         fontFamily: 'Nunito_600SemiBold',
         fontSize: 14,
         marginBottom: 15,
+
+        color: '#030708'
     },
     cardButton: {
         width: 80,
