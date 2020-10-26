@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Dimensions, StyleSheet, View, Text } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { StatusBar } from 'react-native';
+import { RectButton } from 'react-native-gesture-handler';
+import AuthContext from '../../context/auth';
 
-interface HeaderProps {
-    title : string,
-}
 
-export default function HeaderTeacherHomePage({ title }:HeaderProps ) {
+export default function HeaderTeacherHomePage() {
+    const { signed, signOut } = useContext(AuthContext)
+
+    function handleSignOut() {
+        signOut() 
+    }
+
     return (
         <View style={styles.container} >
 
@@ -18,13 +23,14 @@ export default function HeaderTeacherHomePage({ title }:HeaderProps ) {
                     size={24}
                     color='#FFF'
                 />
-                <Text style={styles.titleBar}>{title}</Text>
+                <Text style={styles.titleBar}>Professor</Text>
                 <Feather 
-                    name='more-vertical'
+                    name='log-out'
                     size={24}
                     color='#FFF'
+                    onPress={handleSignOut}
                 />
-
+                {/* more-vertical */}
         </View>
     );
 }
@@ -34,6 +40,7 @@ const styles = StyleSheet.create({
         width: Dimensions.get('window').width,
 
         position: 'absolute',
+        top: 0,
         padding: 24,
 
         backgroundColor: '#0974F1',

@@ -12,14 +12,12 @@ import TeacherHomeLeftPage from '../pages/teacher-pages/dashboard/leftpage';
 
 const Tab = createMaterialBottomTabNavigator();
 
-const Stack = createStackNavigator();
-
 export default function TeacherRoutes() {
     return (
         <NavigationContainer>
             <Tab.Navigator 
                 initialRouteName="teacher-homepage"
-                barStyle={{ backgroundColor: '#2A88F3', paddingVertical: 10, paddingBottom: 15,  }}
+                barStyle={{ backgroundColor: '#0974F1', paddingVertical: 10, paddingBottom: 15,  }}
             >
                     
                 <Tab.Screen 

@@ -1,10 +1,13 @@
 import React from 'react';
 import { View, StyleSheet, Dimensions,Text } from 'react-native';
+import HeaderTeacherHomePage from '../../../components/teacher/header';
 
 export default function TeacherHomeRightPage() {
     return (
         <View style={styles.container} >
-            <Text>Right</Text>
+
+            <HeaderTeacherHomePage />
+
         </View>
     );
 }
