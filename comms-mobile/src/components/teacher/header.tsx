@@ -1,17 +1,17 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Dimensions, StyleSheet, View, Text } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { StatusBar } from 'react-native';
-import { RectButton } from 'react-native-gesture-handler';
 import AuthContext from '../../context/auth';
 
+import { Drawer } from 'react-native-paper';
 
 export default function HeaderTeacherHomePage() {
     const { signed, signOut } = useContext(AuthContext)
 
     function handleSignOut() {
-        signOut() 
-    }
+        signOut();
+    };
 
     return (
         <View style={styles.container} >
@@ -21,7 +21,7 @@ export default function HeaderTeacherHomePage() {
             <Feather 
                     name='menu'
                     size={24}
-                    color='#FFF'
+                    color='#FFF' 
                 />
                 <Text style={styles.titleBar}>Professor</Text>
                 <Feather 
