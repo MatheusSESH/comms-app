@@ -17,25 +17,25 @@ export default function TeacherHomePage() {
     const [cards, setCards] = useState<DataProps[]>([
         {
             id: 1,
-            title: 'titulo',
+            title: 'titulo 1',
             description: 'descrição',
-            text: 'Contexto: Greyhound divisively hello coldly wonderfully marginally far upon excluding.'
+            text: 'Contexto: Greyhound divisively hello coldly wonderfully marginally far upon excluding. asdf asd fasd fasd fasd fasd fasdf asd'
         },
         {
             id: 2,
-            title: 'titulo',
-            description: 'descrição',
-            text: 'Contexto: Greyhound divisively hello coldly wonderfully marginally far upon excluding.'
-        },
-        {
-            id: 3,
-            title: 'titulo',
+            title: 'titulo 2',
             description: 'descrição',
             text: 'Contexto: Greyhound divisively hello coldly wonderfully marginally far upon excluding.'
         },
         {
             id: 4,
-            title: 'titulo',
+            title: 'titulo 4',
+            description: 'descrição',
+            text: 'Contexto: Greyhound divisively hello coldly wonderfully marginally far upon excluding.'
+        },
+        {
+            id: 3,
+            title: 'titulo 3',
             description: 'descrição',
             text: 'Contexto: Greyhound divisively hello coldly wonderfully marginally far upon excluding.'
         },
@@ -128,7 +128,7 @@ export default function TeacherHomePage() {
                                 />
                                 <Text style={styles.LabelInputOverlayForm}>Comunicado</Text>
                                 <Input 
-                                    style={styles.inputOverlayForm}
+                                    style={styles.inputOverlayFormMessage}
                                     inputContainerStyle={{ borderBottomColor: '#FFFFFF' }}
                                     multiline
                                 />
@@ -176,13 +176,14 @@ const styles = StyleSheet.create({
 
     cardsContainer: {
         paddingHorizontal: 15,
-
         paddingTop: 80 ,
-
         position: 'relative',
     },
     card: {
-        padding: 20,
+        width: 365,
+        flexGrow: 1,
+
+        padding: 15,
 
         borderRadius: 20,
         backgroundColor: '#FFF',
@@ -204,9 +205,12 @@ const styles = StyleSheet.create({
         marginBottom: 10,
     },
     cardText: {
+        width: 332,
         fontFamily: 'Nunito_600SemiBold',
         fontSize: 14,
         marginBottom: 15,
+
+        flexWrap: "wrap",
 
         color: '#030708',
     },
@@ -274,7 +278,7 @@ const styles = StyleSheet.create({
 
         paddingHorizontal: 10,
         paddingTop: 5,
-        paddingBottom: 30,
+        paddingBottom: 10,
 
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -294,6 +298,20 @@ const styles = StyleSheet.create({
     },
 
     inputOverlayForm: {
+        backgroundColor: '#E9ECEF',
+        borderColor: '#2A88F3',
+
+        paddingLeft: 10,        
+        paddingVertical: 5,
+
+        borderWidth: 1,
+        borderRadius: 10,
+
+        fontSize: 14,
+    },
+    inputOverlayFormMessage: {
+        height: 30,
+        
         backgroundColor: '#E9ECEF',
         borderColor: '#2A88F3',
 

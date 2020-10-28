@@ -4,7 +4,6 @@ import { Feather } from '@expo/vector-icons';
 import { StatusBar } from 'react-native';
 import AuthContext from '../../context/auth';
 
-import { Drawer } from 'react-native-paper';
 
 export default function HeaderTeacherHomePage() {
     const { signed, signOut } = useContext(AuthContext)
@@ -12,7 +11,7 @@ export default function HeaderTeacherHomePage() {
     function handleSignOut() {
         signOut();
     };
-
+   
     return (
         <View style={styles.container} >
 
