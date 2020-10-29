@@ -1,58 +1,58 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { MaterialIcons } from '@expo/vector-icons';
 
 import TeacherHomePage from '../pages/teacher-pages/dashboard/home';
 import TeacherHomeRightPage from '../pages/teacher-pages/dashboard/solicitations';
 
-import TeacherHomeLeftPage from '../pages/teacher-pages/dashboard/leftpage';
+import TeacherHomeLeftPage from '../pages/teacher-pages/dashboard/notifications';
 
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import  CalendarPage  from '../pages/teacher-pages/dashboard/calendar';
 
-const Tab = createMaterialBottomTabNavigator();
+const Drawer = createDrawerNavigator();
 
 export default function TeacherRoutes() {
     return (
         <NavigationContainer>
-            <Tab.Navigator 
+            <Drawer.Navigator 
                 initialRouteName="teacher-homepage"
-                barStyle={{ backgroundColor: '#0974F1', paddingVertical: 10, paddingBottom: 15,  }}
+                drawerContentOptions={{ 
+                    activeBackgroundColor: '#E9ECEF', 
+                    activeTintColor: '#2A88F3', 
+                    labelStyle: { 
+                        fontFamily: 'Nunito_700Bold',
+                        fontSize: 16,
+                    }
+                }}
+                drawerStyle={{ paddingTop: 50 }}
             >
                     
-                <Tab.Screen 
-                    name="teacher-leftpage" 
-                    component={TeacherHomeLeftPage}
-                    options={{
-                        tabBarLabel: 'Updates',
-                        tabBarIcon: () => (
-                        <MaterialCommunityIcons name="bell" color='#FFF'  size={26} />
-                        ),
-                    }}
-                />
-
-                <Tab.Screen 
-                    name="teacher-homepage" 
+                <Drawer.Screen 
+                    name="Home" 
                     component={TeacherHomePage}
-                    options={{
-                        tabBarLabel: 'Home',
-                        tabBarIcon: () => (
-                        <MaterialCommunityIcons name="home" color='#FFF' size={26} />
-                        ),
-                    }}
+                    options={{ drawerIcon: () => <MaterialIcons name= 'home' size={24} color='#2A88F3'  /> }}
                 />
 
-                <Tab.Screen 
-                    name="teacher-rightpage" 
-                    component={TeacherHomeRightPage}
-                    options={{
-                        tabBarLabel: 'Profile',
-                        tabBarColor: '#030',
-                        tabBarIcon: () => (
-                        <MaterialCommunityIcons name="account" color='#FFF' size={26} />
-                        ),
-                    }}
+                <Drawer.Screen 
+                    name="Notificações" 
+                    component={TeacherHomeLeftPage}
+                    options={{ drawerIcon: () => <MaterialIcons name= 'chat' size={24} color='#2A88F3' /> }}
                 />
-            </Tab.Navigator>
+
+                <Drawer.Screen 
+                    name="Updates" 
+                    component={TeacherHomeRightPage}
+                    options={{ drawerIcon: () => <MaterialIcons name= 'home' size={24} color='#2A88F3' /> }}
+                />
+
+                <Drawer.Screen 
+                    name="Calendário" 
+                    component={CalendarPage}
+                    options={{ drawerIcon: () => <MaterialIcons name= 'home' size={24} color='#2A88F3' /> }}
+                /> 
+                
+            </Drawer.Navigator>
         </NavigationContainer>
     );
 }

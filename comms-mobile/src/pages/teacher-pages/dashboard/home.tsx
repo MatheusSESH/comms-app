@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { Dimensions, StyleSheet, View, Text, FlatList , TouchableOpacity } from 'react-native';
+import { View, Text, FlatList , TouchableOpacity } from 'react-native';
 import { MaterialIcons, Feather } from '@expo/vector-icons'
 import { Input, Overlay } from 'react-native-elements';
+
+import { home } from './styles';
 
 import HeaderTeacherHomePage from '../../../components/teacher/header';
 
@@ -65,33 +67,44 @@ export default function TeacherHomePage() {
 
     function cardList({item}: {item: DataProps}) {
         return (
-            <View key={item.id} style={styles.card}>
-                <Text style={styles.cardTitle}>{item.title}</Text>
-                <Text style={styles.cardDescription}>{item.description}</Text>
-                <Text style={styles.cardText}>{item.text}</Text>
+            <View key={item.id} style={home.card}>
+                <TouchableOpacity
+                    onPress={() => removeCard(item.id)}
+                    style={{ right: 20, top: 18 , position: 'absolute' }}
+                >
+                    <Feather name='trash' size={24} color='#2A88F3' />
+                </TouchableOpacity>
+                <Text style={home.cardTitle}>{item.title}</Text>
+                <Text style={home.cardDescription}>{item.description}</Text>
+                <Text style={home.cardText}>{item.text}</Text>
 
-                <TouchableOpacity style={styles.cardButton}>
-                    <Text style={styles.cardButtonText}>Detalhes</Text>
+                <TouchableOpacity style={home.cardButton}>
+                    <Text style={home.cardButtonText}>Detalhes</Text>
                 </TouchableOpacity>
             </View>
         );
     }
 
+    const removeCard = ({value}: {value: DataProps}) => {
+        const id = value.id
+        setCards(cards.filter(value => value.id !== id))
+    }
+
     return (
-            <View style={styles.container}>
+            <View style={home.container}>
                 
                 <HeaderTeacherHomePage />                   
 
                     <FlatList
                         data={cards}
-                        contentContainerStyle={styles.cardsContainer}
+                        contentContainerStyle={home.cardsContainer}
                         renderItem={cardList}
                     >
                     </FlatList>
                 
-                <View style={styles.OverlayContainer}>
+                <View style={home.OverlayContainer}>
                     <TouchableOpacity
-                        style={styles.buttonOverlay}
+                        style={home.buttonOverlay}
                         onPress={toggleOverlayButton}
                     >  
                     <MaterialIcons 
@@ -101,13 +114,12 @@ export default function TeacherHomePage() {
                     />
                         <Overlay
                             onBackdropPress={toggleOverlayButton}
-                            fullScreen={false}
                             isVisible={visible}
-                            overlayStyle={styles.overlayFormContainer}
+                            overlayStyle={home.overlayFormContainer}
                         >
-                            <View style={styles.overlayFormContent}>
-                                <View style={styles.HeaderOverlayContainer}>
-                                    <Text style={styles.txtOverlayContainer}>Descreva o comunicado</Text>
+                            <View style={home.overlayFormContent}>
+                                <View style={home.HeaderOverlayContainer}>
+                                    <Text style={home.txtOverlayContainer}>Descreva o comunicado</Text>
                                     <Feather 
                                         name='x'
                                         size={24}
@@ -116,259 +128,44 @@ export default function TeacherHomePage() {
                                     />
                                 </View>
                                 
-                                <Text style={styles.LabelInputOverlayForm}>Titulo</Text>
+                                <Text style={home.LabelInputOverlayForm}>Titulo</Text>
                                 <Input 
-                                    style={styles.inputOverlayForm}
+                                    style={home.inputOverlayForm}
                                     inputContainerStyle={{ borderBottomColor: '#FFFFFF' }}
                                 />
-                                <Text style={styles.LabelInputOverlayForm} >Descrição</Text>
+                                <Text style={home.LabelInputOverlayForm} >Descrição</Text>
                                 <Input 
-                                    style={styles.inputOverlayForm}
+                                    style={home.inputOverlayForm}
                                     inputContainerStyle={{ borderBottomColor: '#FFFFFF' }}
                                 />
-                                <Text style={styles.LabelInputOverlayForm}>Comunicado</Text>
+                                <Text style={home.LabelInputOverlayForm}>Comunicado</Text>
                                 <Input 
-                                    style={styles.inputOverlayFormMessage}
+                                    style={home.inputOverlayFormMessage}
                                     inputContainerStyle={{ borderBottomColor: '#FFFFFF' }}
                                     multiline
                                 />
-                                    <View style={styles.classOverlayForm}>
-                                        <Text style={styles.textClass}>Tumar</Text>
+                                    <View style={home.classOverlayForm}>
+                                        <Text style={home.textClass}>Tumar</Text>
                                         <Input 
-                                            style={styles.inputClass}
+                                            style={home.inputClass}
                                             inputContainerStyle={{ borderBottomColor: '#FFFFFF' }}
                                         />
-                                        <Text style={styles.textClass}>Ano</Text>
+                                        <Text style={home.textClass}>Ano</Text>
                                         <Input 
-                                            style={styles.inputClass}
+                                            style={home.inputClass}
                                             inputContainerStyle={{ borderBottomColor: '#FFFFFF' }}
                                         />
                                     </View>
 
                                     <TouchableOpacity
-                                        style={styles.buttonOverlaySubmit}
+                                        style={home.buttonOverlaySubmit}
                                     >
-                                        <Text style={styles.textButtonOverlaySubmit}>Enviar</Text>
+                                        <Text style={home.textButtonOverlaySubmit}>Enviar</Text>
                                     </TouchableOpacity>
-                                
                                 </View>
                             </Overlay>
-
                     </TouchableOpacity>
                 </View>
-
             </View>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-
-        width: Dimensions.get('window').width,
-        height: Dimensions.get('window').height,
-
-        backgroundColor: '#E9ECEF',
-
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-
-    cardsContainer: {
-        paddingHorizontal: 15,
-        paddingTop: 80 ,
-        position: 'relative',
-    },
-    card: {
-        width: 365,
-        flexGrow: 1,
-
-        padding: 15,
-
-        borderRadius: 20,
-        backgroundColor: '#FFF',
-
-        marginVertical: 20,
-        marginHorizontal: 10,
-
-        elevation: 10
-    },
-    cardTitle: {
-        color:  '#010403',
-        fontFamily: 'Nunito_700Bold',
-        fontSize: 20,
-    },
-    cardDescription: {
-        color: '#7777',
-        fontFamily: 'Nunito_600SemiBold',
-        fontSize: 14,
-        marginBottom: 10,
-    },
-    cardText: {
-        width: 332,
-        fontFamily: 'Nunito_600SemiBold',
-        fontSize: 14,
-        marginBottom: 15,
-
-        flexWrap: "wrap",
-
-        color: '#030708',
-    },
-    cardButton: {
-        width: 80,
-        height: 35,
-
-        borderRadius: 6,        
-        backgroundColor: '#2A88F3',
-        
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    cardButtonText: {
-        color: '#FFF',
-        fontFamily: 'Nunito_600SemiBold',
-        fontSize: 14,
-    },
-
-    OverlayContainer: {
-        width: 60,
-        height: 60,
-
-        position: 'absolute',
-        bottom: 15,
-        right: 15,
-
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-
-    buttonOverlay: {
-        width: 60,
-        height: 60,
-        
-        backgroundColor: '#FFF',
-        
-        borderWidth: 2,
-        borderColor: '#2A88F3',
-        borderRadius: 50,
-
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-
-    overlayFormContainer: {
-        width: 360,
-        height: 500,
-
-        borderRadius: 20,
-
-        borderWidth: 2,
-        borderColor: '#2A88F3',
-
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    overlayFormContent:{
-        width: 340,
-        height: 470,
-    },
-
-    HeaderOverlayContainer: {
-        position: 'relative',
-
-        paddingHorizontal: 10,
-        paddingTop: 5,
-        paddingBottom: 10,
-
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        flexDirection: 'row',
-    },
-    txtOverlayContainer:{
-        fontFamily: 'Nunito_700Bold',
-        fontSize: 18,
-    },
-
-    LabelInputOverlayForm: {
-        paddingBottom: 5,
-        paddingLeft: 10,
-
-        fontFamily: 'Nunito_600SemiBold',
-        fontSize: 16,
-    },
-
-    inputOverlayForm: {
-        backgroundColor: '#E9ECEF',
-        borderColor: '#2A88F3',
-
-        paddingLeft: 10,        
-        paddingVertical: 5,
-
-        borderWidth: 1,
-        borderRadius: 10,
-
-        fontSize: 14,
-    },
-    inputOverlayFormMessage: {
-        height: 30,
-        
-        backgroundColor: '#E9ECEF',
-        borderColor: '#2A88F3',
-
-        paddingLeft: 10,        
-        paddingVertical: 5,
-
-        borderWidth: 1,
-        borderRadius: 10,
-
-        fontSize: 14,
-    },
-
-    classOverlayForm: {
-        width: 90,
-
-        position: 'absolute',
-        left: 85,
-        bottom: 60,
-
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'flex-start',
-    },
-    textClass: {
-        fontFamily: 'Nunito_600SemiBold',
-        fontSize: 16,
-        paddingTop: 8,
-        paddingLeft: 10,
-    },
-
-    inputClass: {
-        borderColor: '#2A88F3',
-        borderWidth: 1,
-        borderRadius: 5,
-
-        backgroundColor: '#E9ECEF',
-        textAlign: 'center'
-    },
-
-    buttonOverlaySubmit:{
-        width: 220,
-        height: 45,
-        backgroundColor: '#2A88F3',
-
-        position: 'absolute',
-        bottom: 0,
-        left: 65,
-
-        justifyContent: 'center',
-        alignItems: 'center',
-
-        borderRadius: 10,
-    },
-    textButtonOverlaySubmit: {
-        color: '#fff',
-        fontFamily: 'Nunito_700Bold',
-        fontSize: 18,
-    },
-    
-});

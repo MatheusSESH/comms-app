@@ -8,6 +8,8 @@ import AuthContext from '../../context/auth';
 export default function HeaderTeacherHomePage() {
     const { signed, signOut } = useContext(AuthContext)
 
+
+
     function handleSignOut() {
         signOut();
     };
@@ -21,6 +23,7 @@ export default function HeaderTeacherHomePage() {
                     name='menu'
                     size={24}
                     color='#FFF' 
+                    
                 />
                 <Text style={styles.titleBar}>Professor</Text>
                 <Feather 
