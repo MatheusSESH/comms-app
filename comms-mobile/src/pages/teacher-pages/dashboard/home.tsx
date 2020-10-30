@@ -69,8 +69,8 @@ export default function TeacherHomePage() {
         return (
             <View key={item.id} style={home.card}>
                 <TouchableOpacity
+                    style={{ right: 30, top: 15 , position: 'absolute', zIndex: 10}}
                     onPress={() => removeCard(item.id)}
-                    style={{ right: 20, top: 18 , position: 'absolute' }}
                 >
                     <Feather name='trash' size={24} color='#2A88F3' />
                 </TouchableOpacity>
@@ -85,10 +85,31 @@ export default function TeacherHomePage() {
         );
     }
 
-    const removeCard = ({value}: {value: DataProps}) => {
-        const id = value.id
-        setCards(cards.filter(value => value.id !== id))
+    // const [deleteCard, setDeleteCard] = useState(false);
+    // const toggleDeleteCard = () => setDeleteCard(prevent => !prevent)
+    
+    function removeCard(item: number) {
+        setCards(cards.filter((value) => value.id !== item ))
+        // (deleteCard ? (setCards(cards.filter((value) => value.id !== item ))) : (setDeleteCard(false))) 
+        // return(
+        //     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',  }}>
+        //         <Overlay
+        //             onBackdropPress={toggleDeleteCard}
+        //             isVisible={visible}
+        //         >
+        //             <View>
+        //                 <Text>Tem certeza que deseja apagar o este comunicado?</Text>
+        //                 <TouchableOpacity
+        //                     onPress={() => setDeleteCard(true)}
+        //                 >
+        //                     <Text>Sim</Text>
+        //                 </TouchableOpacity>
+        //             </View>
+        //         </Overlay>
+        //     </View>
+        // );
     }
+    
 
     return (
             <View style={home.container}>

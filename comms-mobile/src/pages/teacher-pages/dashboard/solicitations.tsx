@@ -1,10 +1,12 @@
 import React from 'react';
-import { View, StyleSheet, Dimensions,Text } from 'react-native';
+import { View, Text } from 'react-native';
 import HeaderTeacherHomePage from '../../../components/teacher/header';
 
-export default function TeacherHomeRightPage() {
+import { solicitations } from './styles';
+
+export default function Solicitations() {
     return (
-        <View style={styles.container} >
+        <View style={solicitations.container} >
 
             <HeaderTeacherHomePage />
 
@@ -12,17 +14,3 @@ export default function TeacherHomeRightPage() {
     );
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-
-        width: Dimensions.get('window').width,
-        height: Dimensions.get('window').height,
-
-        backgroundColor: '#E9ECEF',
-
-        justifyContent: 'center',
-        alignItems:'center',
-    },
-
-})

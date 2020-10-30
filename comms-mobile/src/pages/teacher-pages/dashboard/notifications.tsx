@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StyleSheet, Dimensions,Text } from 'react-native';
 import HeaderTeacherHomePage from '../../../components/teacher/header';
 
-export default function TeacherHomeLeftPage() {
+export default function Notifications() {
     return (
         <View style={styles.container} >
 

@@ -34,6 +34,7 @@ export const home = StyleSheet.create({
         color:  '#010403',
         fontFamily: 'Nunito_700Bold',
         fontSize: 20,
+        zIndex: 5,
     },
     cardDescription: {
         color: '#7777',
@@ -212,11 +213,7 @@ export const home = StyleSheet.create({
     
 });
 
-export const notifications = StyleSheet.create({
-    
-});
-
-export const calendar = StyleSheet.create({
+export const solicitations = StyleSheet.create({
     container: {
         flex: 1,
 
@@ -227,3 +224,40 @@ export const calendar = StyleSheet.create({
         alignItems: 'center',
     }
 });
+
+export const notifications = StyleSheet.create({
+    container: {
+        flex: 1,
+
+        width: Dimensions.get('window').width,
+        height: Dimensions.get('window').height,
+
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+});
+
+export const classes = StyleSheet.create({
+    container: {
+        flex: 1,
+
+        width: Dimensions.get('window').width,
+        height: Dimensions.get('window').height,
+
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+});
+
+export const settings = StyleSheet.create({
+    container: {
+        flex: 1,
+
+        width: Dimensions.get('window').width,
+        height: Dimensions.get('window').height,
+
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+});
+

@@ -1,16 +1,29 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { MaterialIcons } from '@expo/vector-icons';
 
 import TeacherHomePage from '../pages/teacher-pages/dashboard/home';
-import TeacherHomeRightPage from '../pages/teacher-pages/dashboard/solicitations';
+import Solicitations from '../pages/teacher-pages/dashboard/solicitations';
+import Classes from '../pages/teacher-pages/dashboard/studentClass';
+import Notifications from '../pages/teacher-pages/dashboard/notifications';
 
-import TeacherHomeLeftPage from '../pages/teacher-pages/dashboard/notifications';
-
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import  CalendarPage  from '../pages/teacher-pages/dashboard/calendar';
+import { createDrawerNavigator, DrawerContentScrollView, DrawerItem, DrawerItemList } from '@react-navigation/drawer';
+import settings from '../pages/teacher-pages/dashboard/settings';
 
 const Drawer = createDrawerNavigator();
+
+
+// function CustomDrawerContent(props :any) {
+//     return (
+//       <DrawerContentScrollView {...props}>
+//         <DrawerItem
+//           label="Profile"
+//           icon={}
+//         />
+//         <DrawerItemList {...props} />
+//       </DrawerContentScrollView>
+//     );
+//   }
 
 export default function TeacherRoutes() {
     return (
@@ -23,9 +36,10 @@ export default function TeacherRoutes() {
                     labelStyle: { 
                         fontFamily: 'Nunito_700Bold',
                         fontSize: 16,
-                    }
+                    },
                 }}
                 drawerStyle={{ paddingTop: 50 }}
+                // drawerContent={CustomDrawerContent}
             >
                     
                 <Drawer.Screen 
@@ -35,21 +49,28 @@ export default function TeacherRoutes() {
                 />
 
                 <Drawer.Screen 
-                    name="Notificações" 
-                    component={TeacherHomeLeftPage}
+                    name="Turmas" 
+                    component={Classes}
+                    options={{ drawerIcon: () => <MaterialIcons name= 'class' size={24} color='#2A88F3' /> }}
+                /> 
+
+                <Drawer.Screen 
+                    name="Solicitações" 
+                    component={Solicitations}
+
                     options={{ drawerIcon: () => <MaterialIcons name= 'chat' size={24} color='#2A88F3' /> }}
                 />
 
                 <Drawer.Screen 
-                    name="Updates" 
-                    component={TeacherHomeRightPage}
-                    options={{ drawerIcon: () => <MaterialIcons name= 'home' size={24} color='#2A88F3' /> }}
+                    name="Notificações" 
+                    component={Notifications}
+                    options={{ drawerIcon: () => <MaterialIcons name= 'notifications' size={24} color='#2A88F3' /> }}
                 />
 
                 <Drawer.Screen 
-                    name="Calendário" 
-                    component={CalendarPage}
-                    options={{ drawerIcon: () => <MaterialIcons name= 'home' size={24} color='#2A88F3' /> }}
+                    name="Configurações" 
+                    component={settings}
+                    options={{ drawerIcon: () => <MaterialIcons name= 'settings' size={24} color='#2A88F3' /> }}
                 /> 
                 
             </Drawer.Navigator>

@@ -6,7 +6,7 @@ import { Feather } from '@expo/vector-icons'
 import { RectButton } from 'react-native-gesture-handler';
 
 import AuthContext from '../../context/auth';
-
+import Header from '../../components/header-title';
 import BackgroundCustom from '../../components/BackgroundCustom';
 
 export default function loginStudent() {
@@ -35,7 +35,7 @@ export default function loginStudent() {
     return (
     <ScrollView>
         <View style={styles.container}>
-           
+
         <BackgroundCustom /> 
 
             <Text style={styles.title_form}>Login</Text>

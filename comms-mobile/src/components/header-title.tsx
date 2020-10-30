@@ -38,9 +38,6 @@ export default function Header({ title, showCancel = true, showArrow = true }: H
             ) : (
                 <View />
             ) }     
-
-            
-
         </View>
     );
 }
@@ -50,7 +47,7 @@ const styles = StyleSheet.create({
         width: Dimensions.get('window').width,
 
         position: 'absolute',
-        paddingTop: 44,
+        paddingTop: 35,
         padding: 24,
 
         backgroundColor: '#f9fafc',
