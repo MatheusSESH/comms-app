@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { createContext, useState } from 'react';
 import { View, Text, FlatList , TouchableOpacity } from 'react-native';
 import { MaterialIcons, Feather } from '@expo/vector-icons'
-import { Input, Overlay } from 'react-native-elements';
+import { Overlay } from 'react-native-elements';
 
 import { home } from './styles';
 
 import HeaderTeacherHomePage from '../../../components/teacher/header';
+import CreateQuestion from './create-questions';
 
 interface DataProps {
     id: number;
@@ -15,7 +16,6 @@ interface DataProps {
 }
 
 export default function TeacherHomePage() {
-
     const [cards, setCards] = useState<DataProps[]>([
         {
             id: 1,
@@ -62,8 +62,6 @@ export default function TeacherHomePage() {
     ]);
 
     const [visible, setVisible] = useState(false);
-
-    const toggleOverlayButton = () => setVisible(value => !value) 
 
     function cardList({item}: {item: DataProps}) {
         return (
@@ -126,7 +124,7 @@ export default function TeacherHomePage() {
                 <View style={home.OverlayContainer}>
                     <TouchableOpacity
                         style={home.buttonOverlay}
-                        onPress={toggleOverlayButton}
+                        onPress={() => setVisible(true)}
                     >  
                     <MaterialIcons 
                         name='create'
@@ -134,56 +132,11 @@ export default function TeacherHomePage() {
                         color='#2A88F3'
                     />
                         <Overlay
-                            onBackdropPress={toggleOverlayButton}
+                            onBackdropPress={() => setVisible(false)}
                             isVisible={visible}
-                            overlayStyle={home.overlayFormContainer}
                         >
-                            <View style={home.overlayFormContent}>
-                                <View style={home.HeaderOverlayContainer}>
-                                    <Text style={home.txtOverlayContainer}>Descreva o comunicado</Text>
-                                    <Feather 
-                                        name='x'
-                                        size={24}
-                                        color='#fa1799'
-                                        onPress={toggleOverlayButton}
-                                    />
-                                </View>
-                                
-                                <Text style={home.LabelInputOverlayForm}>Titulo</Text>
-                                <Input 
-                                    style={home.inputOverlayForm}
-                                    inputContainerStyle={{ borderBottomColor: '#FFFFFF' }}
-                                />
-                                <Text style={home.LabelInputOverlayForm} >Descrição</Text>
-                                <Input 
-                                    style={home.inputOverlayForm}
-                                    inputContainerStyle={{ borderBottomColor: '#FFFFFF' }}
-                                />
-                                <Text style={home.LabelInputOverlayForm}>Comunicado</Text>
-                                <Input 
-                                    style={home.inputOverlayFormMessage}
-                                    inputContainerStyle={{ borderBottomColor: '#FFFFFF' }}
-                                    multiline
-                                />
-                                    <View style={home.classOverlayForm}>
-                                        <Text style={home.textClass}>Tumar</Text>
-                                        <Input 
-                                            style={home.inputClass}
-                                            inputContainerStyle={{ borderBottomColor: '#FFFFFF' }}
-                                        />
-                                        <Text style={home.textClass}>Ano</Text>
-                                        <Input 
-                                            style={home.inputClass}
-                                            inputContainerStyle={{ borderBottomColor: '#FFFFFF' }}
-                                        />
-                                    </View>
-
-                                    <TouchableOpacity
-                                        style={home.buttonOverlaySubmit}
-                                    >
-                                        <Text style={home.textButtonOverlaySubmit}>Enviar</Text>
-                                    </TouchableOpacity>
-                                </View>
+                            <CreateQuestion />
+                            
                             </Overlay>
                     </TouchableOpacity>
                 </View>

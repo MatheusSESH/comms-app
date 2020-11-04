@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, Dimensions, ScrollView } from 'react-native';
-import { Input, Button } from 'react-native-elements';
+import { Input } from 'react-native-elements';
 import { Feather, } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
-import HeaderComms from '../../components/header';
-import { LinearGradient } from 'expo-linear-gradient';
 import BackgroundCustom from '../../components/BackgroundCustom';
 import { RectButton } from 'react-native-gesture-handler';
 

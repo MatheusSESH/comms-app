@@ -6,7 +6,6 @@ import { Feather } from '@expo/vector-icons'
 import { RectButton } from 'react-native-gesture-handler';
 
 import AuthContext from '../../context/auth';
-import Header from '../../components/header-title';
 import BackgroundCustom from '../../components/BackgroundCustom';
 
 export default function loginStudent() {
@@ -16,8 +15,6 @@ export default function loginStudent() {
     const [password, setPassword] = useState('')
 
     const { signed, signIn } = useContext(AuthContext);
-
-    console.log(signed)
 
     async function handleSignIn() {
         signIn();

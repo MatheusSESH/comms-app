@@ -95,7 +95,89 @@ export const home = StyleSheet.create({
         
         
     },
+    
+});
 
+export const solicitations = StyleSheet.create({
+    container: {
+        flex: 1,
+
+        width: Dimensions.get('window').width,
+        height: Dimensions.get('window').height,
+
+        justifyContent: 'center',
+        alignItems: 'center',
+    }
+});
+
+export const notifications = StyleSheet.create({
+    container: {
+        flex: 1,
+
+        width: Dimensions.get('window').width,
+        height: Dimensions.get('window').height,
+
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+});
+
+export const classes = StyleSheet.create({
+    container: {
+        flex: 1,
+
+        width: Dimensions.get('window').width,
+        height: Dimensions.get('window').height,
+
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#E9ECEF'
+    },
+
+    cardContainer: {
+        paddingTop: 80 ,
+        position: 'relative',
+    },
+
+    card: {
+        width: '80%',
+        height: 110,
+
+        borderRadius: 15,
+
+        position: 'absolute',
+        backgroundColor: '#2A88F3',
+
+        justifyContent: 'center',
+        alignItems: 'center',
+
+        elevation: 10,
+    },
+});
+
+export const settings = StyleSheet.create({
+    container: {
+        flex: 1,
+
+        width: Dimensions.get('window').width,
+        height: Dimensions.get('window').height,
+
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+});
+
+export const formQuestion = StyleSheet.create({
+   container: {
+        flex: 1,
+
+        width: Dimensions.get('window').width,
+        height: Dimensions.get('window').height,
+
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    
     overlayFormContainer: {
         width: 360,
         height: 500,
@@ -108,9 +190,11 @@ export const home = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
+
     overlayFormContent:{
-        width: 340,
-        height: 470,
+        width: Dimensions.get('window').width,
+        paddingHorizontal: 20,
+        height: 550,
     },
 
     HeaderOverlayContainer: {
@@ -210,54 +294,5 @@ export const home = StyleSheet.create({
         fontFamily: 'Nunito_700Bold',
         fontSize: 18,
     },
-    
+
 });
-
-export const solicitations = StyleSheet.create({
-    container: {
-        flex: 1,
-
-        width: Dimensions.get('window').width,
-        height: Dimensions.get('window').height,
-
-        justifyContent: 'center',
-        alignItems: 'center',
-    }
-});
-
-export const notifications = StyleSheet.create({
-    container: {
-        flex: 1,
-
-        width: Dimensions.get('window').width,
-        height: Dimensions.get('window').height,
-
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-});
-
-export const classes = StyleSheet.create({
-    container: {
-        flex: 1,
-
-        width: Dimensions.get('window').width,
-        height: Dimensions.get('window').height,
-
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-});
-
-export const settings = StyleSheet.create({
-    container: {
-        flex: 1,
-
-        width: Dimensions.get('window').width,
-        height: Dimensions.get('window').height,
-
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-});
-
