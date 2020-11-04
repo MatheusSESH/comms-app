@@ -12,7 +12,7 @@ interface DataProps {
 }
 
 export default function Classes() {
-    const [card, setCard] = useState<DataProps[]>([
+    const [cards, setCard] = useState<DataProps[]>([
       {
           id: 1,
           classes: '1-A'
@@ -29,17 +29,35 @@ export default function Classes() {
         id: 4,
         classes: '2-B'
       },
+      {
+        id: 5,
+        classes: '2-B'
+      },
+      {
+        id: 6,
+        classes: '2-B'
+      },
+      {
+        id: 7,
+        classes: '2-B'
+      },
+      {
+        id: 8,
+        classes: '2-B'
+      },
     ])
     
     function cardList({item}: {item: DataProps}) {
       return (
-          <View key={item.id} >
-              <Text>{item.classes}</Text>
-              <TouchableOpacity >
+          <View key={item.id} style={classes.card}>
+              <Text style={classes.titleCard}>{item.classes}</Text>
+              <TouchableOpacity
+                onPress={() => {}}
+              >
                   <Feather 
-                    name='chevrons-down'
+                    name='chevron-down'
                     size={24}
-                    color='#FFF'
+                    color='#2A88F3'
                   />
               </TouchableOpacity>
           </View>
@@ -52,8 +70,8 @@ export default function Classes() {
       <HeaderTeacherHomePage />
 
       <FlatList
-          data={card}
-          contentContainerStyle={classes.cardContainer}
+          data={cards}
+          contentContainerStyle={classes.cardsContainer}
           renderItem={cardList}
       >
       </FlatList>

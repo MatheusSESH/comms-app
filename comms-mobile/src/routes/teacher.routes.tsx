@@ -7,6 +7,7 @@ import TeacherHomePage from '../pages/teacher-pages/dashboard/home';
 import Solicitations from '../pages/teacher-pages/dashboard/solicitations';
 import Classes from '../pages/teacher-pages/dashboard/studentClass';
 import settings from '../pages/teacher-pages/dashboard/settings';
+import warnings from '../pages/teacher-pages/dashboard/warnings';
 
 const Drawer = createDrawerNavigator();
 
@@ -26,12 +27,12 @@ export default function TeacherRoutes() {
     return (
         <NavigationContainer>
             <Drawer.Navigator 
-                initialRouteName="teacher-homepage"
+                initialRouteName="Solicitações"
                 drawerContentOptions={{ 
                     activeBackgroundColor: '#E9ECEF', 
                     labelStyle: { 
                         fontFamily: 'Nunito_700Bold',
-                        fontSize: 16,
+                        fontSize: 18,
                     },
                 }}
                 drawerStyle={{ paddingTop: 50, backgroundColor: '#FFF'}}
@@ -60,6 +61,14 @@ export default function TeacherRoutes() {
                     component={Solicitations}
                     options={{ drawerIcon: (({focused}) => 
                         <MaterialIcons name= 'chat' size={24} color={focused ? '#2A88F3':'#555' }/>
+                    )}}
+                />
+
+                <Drawer.Screen 
+                    name="Avisos" 
+                    component={warnings}
+                    options={{ drawerIcon: (({focused}) => 
+                        <MaterialIcons name= 'warning' size={24} color={focused ? '#2A88F3':'#555' }/>
                     )}}
                 />
 

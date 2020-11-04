@@ -92,8 +92,6 @@ export const home = StyleSheet.create({
 
         justifyContent: 'center',
         alignItems: 'center',
-        
-        
     },
     
 });
@@ -107,10 +105,63 @@ export const solicitations = StyleSheet.create({
 
         justifyContent: 'center',
         alignItems: 'center',
-    }
+    },
+
+    cardsContainer: {
+        paddingTop: 80,
+        position: 'relative',
+    },
+
+    card: {
+        width: 360,
+
+        padding: 15,
+
+        alignItems: 'flex-start',
+        justifyContent: 'center',
+
+        borderRadius: 20,
+        backgroundColor: '#FFF',
+
+        marginVertical: 20,
+        marginHorizontal: 10,
+
+        elevation: 10,
+    },
+
+    titleCard: {
+        color:  '#010403',
+        fontFamily: 'Nunito_700Bold',
+        fontSize: 20,
+        zIndex: 5,
+    },
+
+    cardName: {
+        color: '#6C757D',
+        fontFamily: 'Nunito_600SemiBold',
+        fontSize: 14,
+        marginBottom: 10,
+        marginRight: 10,
+    },
+    cardClass: {
+        color: '#6C757D',
+        fontFamily: 'Nunito_600SemiBold',
+        fontSize: 14,
+        marginBottom: 10,
+    },
+    cardText: {
+        width: 332,
+        fontFamily: 'Nunito_600SemiBold',
+        fontSize: 14,
+        marginBottom: 15,
+
+        flexWrap: "wrap",
+
+        color: '#030708',
+    },
 });
 
-export const notifications = StyleSheet.create({
+export const warnings = StyleSheet.create({
     container: {
         flex: 1,
 
@@ -129,29 +180,41 @@ export const classes = StyleSheet.create({
         width: Dimensions.get('window').width,
         height: Dimensions.get('window').height,
 
+        backgroundColor: '#E9ECEF',
+
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#E9ECEF'
     },
 
-    cardContainer: {
-        paddingTop: 80 ,
+    cardsContainer: {
         position: 'relative',
+        paddingTop: 80,
     },
 
     card: {
-        width: '80%',
-        height: 110,
+        width: 360,
+        height: 100,
 
-        borderRadius: 15,
+        padding: 15,
 
-        position: 'absolute',
-        backgroundColor: '#2A88F3',
-
-        justifyContent: 'center',
         alignItems: 'center',
+        justifyContent: 'center',
 
-        elevation: 10,
+        borderRadius: 20,
+        backgroundColor: '#FFF',
+
+        marginVertical: 20,
+        marginHorizontal: 10,
+
+        elevation: 10
+    },
+
+    titleCard: {
+        fontFamily: 'Nunito_700Bold',
+        fontSize: 20,
+        color: '#2A88F3',
+
+        paddingBottom: 25
     },
 });
 
