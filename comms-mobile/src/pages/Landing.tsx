@@ -1,10 +1,11 @@
 import React from 'react';
 import { View, StyleSheet, Dimensions,Text } from 'react-native';
-import HeaderComms from '../components/header';
-import BackgroundCustom from '../components/BackgroundCustom';
 import { RectButton } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
 
+import BackgroundCustom from '../components/BackgroundCustom';
+
+import HeaderComms from '../components/header';
 
 export default function LandingPage(){
 

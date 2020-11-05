@@ -1,6 +1,6 @@
 import React, { createContext, useState } from 'react';
 import { View, Text, FlatList , TouchableOpacity } from 'react-native';
-import { MaterialIcons, Feather } from '@expo/vector-icons'
+import { MaterialIcons, Feather } from '@expo/vector-icons';
 import { Overlay } from 'react-native-elements';
 
 import { home } from './styles';
@@ -117,6 +117,7 @@ export default function TeacherHomePage() {
                     <FlatList
                         data={cards}
                         contentContainerStyle={home.cardsContainer}
+                        keyExtractor={item => item.id.toString()}
                         renderItem={cardList}
                     >
                     </FlatList>

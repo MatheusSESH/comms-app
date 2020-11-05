@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 import HeaderTeacherHomePage from '../../../components/teacher/header';
-import { MaterialIcons } from '@expo/vector-icons'
+import { MaterialIcons } from '@expo/vector-icons';
 
 import { solicitations } from './styles';
 
@@ -26,7 +26,7 @@ export default function Solicitations() {
         {
             id: 2,
             title: 'Computador em reparo',
-            name: 'Matheus Vinicius da cruz dos santos valente asdka asdkaskdk',
+            name: 'Matheus Vinicius da cruz dos santos valente',
             turma: '2-B',
             text: 'Contexto: Greyhound divisively hello coldly wonderfully marginally far upon excluding. asdf asd fasd fasd fasd fasd fasdf asd'
         },
@@ -76,6 +76,7 @@ export default function Solicitations() {
                 <Text style={solicitations.cardText}>{item.text}</Text>
                     <View style={{ 
                         width: 320,
+                        paddingTop: 10,
                         flexDirection: 'row',
                         alignItems: 'center',
                         justifyContent: 'space-between',
@@ -83,27 +84,41 @@ export default function Solicitations() {
                         <TouchableOpacity 
                             onPress={() => {}}
                             style={{ 
+                                width: 30,
+                                height: 30,
                                 flexDirection: 'row',
                                 alignItems: 'center',
                                 justifyContent:'center',
+                                backgroundColor: '#55a630',
+                                borderRadius: 5,
                             }}
                         >   
                             <MaterialIcons 
                                 name='done'
                                 size={24}
-                                color='green'
+                                color='#FFF'
                             />
                         </TouchableOpacity>
 
                         <TouchableOpacity
-                        onPress={() => {}}
+                            onPress={() => {}}
+                            style={{ 
+                                width: 130,
+                                height: 30,
+                                flexDirection: 'row',
+                                alignItems: 'center',
+                                justifyContent:'center',
+                                backgroundColor: '#ffb700',
+                                borderRadius: 5,
+                        }}
                         >
-                            <MaterialIcons 
-                                name='push_pin'
-                                size={24}
-                                color='yellow'
-                            />
-                            <Text>Em andamento</Text>
+                            <Text
+                                style={{ 
+                                    fontFamily: 'Nunito_600SemiBold',
+                                    fontSize: 14,
+                                    color: '#FFF'
+                                }}
+                            >Em andamento</Text>
                         </TouchableOpacity>
                     </View>
             </View>
@@ -111,13 +126,14 @@ export default function Solicitations() {
     }
 
     return (
-        <View style={solicitations.container} >
+        <View style={solicitations.container}>
 
             <HeaderTeacherHomePage />
 
             <FlatList 
                 data={cards}
-                style={solicitations.cardsContainer}
+                contentContainerStyle={solicitations.cardsContainer}
+                keyExtractor={item => item.id.toString()}
                 renderItem={cardList}
             />
 

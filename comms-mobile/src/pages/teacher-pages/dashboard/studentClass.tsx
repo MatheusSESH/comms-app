@@ -53,6 +53,7 @@ export default function Classes() {
               <Text style={classes.titleCard}>{item.classes}</Text>
               <TouchableOpacity
                 onPress={() => {}}
+                
               >
                   <Feather 
                     name='chevron-down'
@@ -72,6 +73,7 @@ export default function Classes() {
       <FlatList
           data={cards}
           contentContainerStyle={classes.cardsContainer}
+          keyExtractor={item => item.id.toString()}
           renderItem={cardList}
       >
       </FlatList>

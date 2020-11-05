@@ -28,7 +28,7 @@ export const home = StyleSheet.create({
         marginVertical: 20,
         marginHorizontal: 10,
 
-        elevation: 10
+        elevation: 5,
     },
     cardTitle: {
         color:  '#010403',
@@ -103,6 +103,8 @@ export const solicitations = StyleSheet.create({
         width: Dimensions.get('window').width,
         height: Dimensions.get('window').height,
 
+        backgroundColor: '#E9ECEF',
+
         justifyContent: 'center',
         alignItems: 'center',
     },
@@ -126,14 +128,16 @@ export const solicitations = StyleSheet.create({
         marginVertical: 20,
         marginHorizontal: 10,
 
-        elevation: 10,
+        elevation: 5,
     },
 
     titleCard: {
         color:  '#010403',
+
         fontFamily: 'Nunito_700Bold',
         fontSize: 20,
-        zIndex: 5,
+
+        marginBottom: 5
     },
 
     cardName: {
@@ -150,14 +154,18 @@ export const solicitations = StyleSheet.create({
         marginBottom: 10,
     },
     cardText: {
-        width: 332,
+        width: 315,
         fontFamily: 'Nunito_600SemiBold',
-        fontSize: 14,
+        fontSize: 15,
         marginBottom: 15,
 
+        paddingTop: 5,
+        
         flexWrap: "wrap",
 
         color: '#030708',
+        borderTopColor: '#d3d3d3',
+        borderTopWidth: 1,
     },
 });
 
@@ -206,7 +214,7 @@ export const classes = StyleSheet.create({
         marginVertical: 20,
         marginHorizontal: 10,
 
-        elevation: 10
+        elevation: 5,
     },
 
     titleCard: {

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Dimensions, View, StyleSheet,Text, ActivityIndicator } from 'react-native';
-import { Feather } from '@expo/vector-icons'
-import { LinearGradient } from 'expo-linear-gradient';
+import { Feather } from '@expo/vector-icons';
 import BackgroundCustom from '../components/BackgroundCustom';
 
 export default function LoadingPage() {
