@@ -11,23 +11,11 @@ import warnings from '../pages/teacher-pages/dashboard/warnings';
 
 const Drawer = createDrawerNavigator();
 
-// function CustomDrawerContent(props :any) {
-//     return (
-//       <DrawerContentScrollView {...props}>
-//         <DrawerItem
-//           label="Profile"
-//           icon={}
-//         />
-//         <DrawerItemList {...props} />
-//       </DrawerContentScrollView>
-//     );
-//   }
-
 export default function TeacherRoutes() {
     return (
         <NavigationContainer>
             <Drawer.Navigator 
-                initialRouteName="Solicitações"
+                initialRouteName="Home"
                 drawerContentOptions={{ 
                     activeBackgroundColor: '#E9ECEF', 
                     labelStyle: { 
@@ -36,9 +24,8 @@ export default function TeacherRoutes() {
                     },
                 }}
                 drawerStyle={{ paddingTop: 50, backgroundColor: '#FFF'}}
-                // drawerContent={CustomDrawerContent}
             >
-                    
+                
                 <Drawer.Screen 
                     name="Home" 
                     component={TeacherHomePage}

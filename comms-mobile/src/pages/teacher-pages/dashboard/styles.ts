@@ -1,5 +1,7 @@
 import { Dimensions, StyleSheet } from 'react-native';
 
+const {height, width} = Dimensions.get('window');
+
 export const home = StyleSheet.create({
     container: {
         flex: 1,
@@ -14,8 +16,12 @@ export const home = StyleSheet.create({
     },
 
     cardsContainer: {
-        paddingTop: 80 ,
+        width: Dimensions.get('window').width,
+        paddingTop: 80,
         position: 'relative',
+
+        justifyContent:'center',
+        alignItems: 'center'
     },
     card: {
         width: 360,
@@ -110,8 +116,12 @@ export const solicitations = StyleSheet.create({
     },
 
     cardsContainer: {
+        width: Dimensions.get('window').width,
         paddingTop: 80,
         position: 'relative',
+
+        justifyContent:'center',
+        alignItems: 'center'
     },
 
     card: {
@@ -195,8 +205,12 @@ export const classes = StyleSheet.create({
     },
 
     cardsContainer: {
-        position: 'relative',
+        width: Dimensions.get('window').width,
         paddingTop: 80,
+        position: 'relative',
+
+        justifyContent:'center',
+        alignItems: 'center'
     },
 
     card: {
@@ -233,8 +247,89 @@ export const settings = StyleSheet.create({
         width: Dimensions.get('window').width,
         height: Dimensions.get('window').height,
 
+        backgroundColor: '#E9ECEF',
+
         justifyContent: 'center',
         alignItems: 'center',
+    },
+
+    avatarContainer: {
+        width: width,
+        height: 230,
+
+        paddingBottom: 30,
+
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+
+    avatarName: {
+        fontFamily: 'Nunito_700Bold',
+        fontSize: 20,
+        color: '#222'
+    },
+    
+    avatarEmail: {
+        fontFamily: 'Nunito_600SemiBold',
+        fontSize: 16,
+        color: '#777',
+    },
+
+    buttonChangePassword: {
+        width: Dimensions.get('window').width,
+        height: 60,
+
+        alignItems: 'flex-start',
+        justifyContent: 'center',
+
+        backgroundColor: '#FFF',
+        borderRadius: 5,
+
+        paddingHorizontal: 30,
+    },
+
+    textChangePassword: {
+        fontFamily: 'Nunito_700Bold',
+        fontSize: 16,
+        color: '#222'
+    },
+
+    switch: {
+        width: Dimensions.get('window').width,
+        height: 60,
+
+        borderBottomWidth: 1,
+        borderBottomColor: '#3333',
+
+        paddingHorizontal: 30,
+
+        flexDirection:'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+    },
+
+    textSwitch: {
+        fontFamily: 'Nunito_700Bold',
+        fontSize: 16,
+        color: '#222'
+    },
+
+    buttonLogout:{
+        width: 300,
+        height: 60,
+
+        backgroundColor: '#EB5757',
+
+        borderRadius: 10,
+
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    
+    textLogout: {
+        color: '#FFF',
+        fontFamily: 'Nunito_700Bold',
+        fontSize: 16,
     },
 });
 

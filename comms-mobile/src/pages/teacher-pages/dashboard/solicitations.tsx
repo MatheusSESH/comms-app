@@ -84,13 +84,14 @@ export default function Solicitations() {
                         <TouchableOpacity 
                             onPress={() => {}}
                             style={{ 
-                                width: 30,
-                                height: 30,
+                                width: 90,
+                                height: 32,
                                 flexDirection: 'row',
                                 alignItems: 'center',
-                                justifyContent:'center',
+                                justifyContent:'space-between',
                                 backgroundColor: '#55a630',
                                 borderRadius: 5,
+                                paddingHorizontal: 8,
                             }}
                         >   
                             <MaterialIcons 
@@ -98,13 +99,20 @@ export default function Solicitations() {
                                 size={24}
                                 color='#FFF'
                             />
+                            <Text
+                                style={{ 
+                                    fontFamily: 'Nunito_700Bold',
+                                    fontSize: 15,
+                                    color: '#FFF'
+                                }}
+                            >Feito</Text>
                         </TouchableOpacity>
 
                         <TouchableOpacity
                             onPress={() => {}}
                             style={{ 
-                                width: 130,
-                                height: 30,
+                                width: 135,
+                                height: 32,
                                 flexDirection: 'row',
                                 alignItems: 'center',
                                 justifyContent:'center',
@@ -114,8 +122,8 @@ export default function Solicitations() {
                         >
                             <Text
                                 style={{ 
-                                    fontFamily: 'Nunito_600SemiBold',
-                                    fontSize: 14,
+                                    fontFamily: 'Nunito_700Bold',
+                                    fontSize: 15,
                                     color: '#FFF'
                                 }}
                             >Em andamento</Text>

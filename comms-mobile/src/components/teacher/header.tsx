@@ -1,38 +1,30 @@
-import React, { useContext, useState } from 'react';
+import React from 'react';
 import { Dimensions, StyleSheet, View, Text } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { StatusBar } from 'react-native';
-import AuthContext from '../../context/auth';
-
+import { DrawerActions } from '@react-navigation/native'; 
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export default function HeaderTeacherHomePage() {
-    const { signed, signOut } = useContext(AuthContext)
 
+    function open(){
+        DrawerActions.openDrawer()
+    }
 
-
-    function handleSignOut() {
-        signOut();
-    };
-   
     return (
         <View style={styles.container} >
 
             <StatusBar />
-            
-            <Feather 
+            <TouchableOpacity
+                onPress={open}
+            >
+                <Feather 
                     name='menu'
                     size={24}
                     color='#FFF' 
-                    
                 />
+            </TouchableOpacity>
                 <Text style={styles.titleBar}>Professor</Text>
-                <Feather 
-                    name='log-out'
-                    size={24}
-                    color='#FFF'
-                    onPress={handleSignOut}
-                />
-                {/* more-vertical */}
         </View>
     );
 }
