@@ -40,16 +40,6 @@ export default function Settings () {
           <Text style={settings.textChangePassword}>Trocar senha</Text>
         </TouchableOpacity>
 
-        <View style={settings.switch}>
-          <Text style={settings.textSwitch}>Modo Daltônico</Text>
-          <Switch
-            trackColor={{ false: "#767577", true: "#81b0ff" }}
-            thumbColor={isEnabled ? "#2F77ff" : "#f4f3f4"}
-            onValueChange={toggleSwitch}
-            value={isEnabled}
-          />
-        </View>
-
         <TouchableOpacity
           style={settings.buttonLogout}
           onPress={handleSignOut}

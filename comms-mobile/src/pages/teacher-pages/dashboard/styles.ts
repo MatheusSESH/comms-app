@@ -239,6 +239,33 @@ export const classes = StyleSheet.create({
         paddingBottom: 25
     },
 });
+export const classesExpand = StyleSheet.create({
+    card: {
+        width: 360,
+        height: 200,
+
+        padding: 15,
+
+        alignItems: 'center',
+        justifyContent: 'center',
+
+        borderRadius: 20,
+        backgroundColor: '#FFF',
+
+        marginVertical: 20,
+        marginHorizontal: 10,
+
+        elevation: 5,
+    },
+
+    titleCard: {
+        fontFamily: 'Nunito_700Bold',
+        fontSize: 20,
+        color: '#2A88F3',
+
+        paddingBottom: 25
+    },
+});
 
 export const settings = StyleSheet.create({
     container: {
@@ -289,26 +316,6 @@ export const settings = StyleSheet.create({
     },
 
     textChangePassword: {
-        fontFamily: 'Nunito_700Bold',
-        fontSize: 16,
-        color: '#222'
-    },
-
-    switch: {
-        width: Dimensions.get('window').width,
-        height: 60,
-
-        borderBottomWidth: 1,
-        borderBottomColor: '#3333',
-
-        paddingHorizontal: 30,
-
-        flexDirection:'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-    },
-
-    textSwitch: {
         fontFamily: 'Nunito_700Bold',
         fontSize: 16,
         color: '#222'
