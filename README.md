@@ -11,11 +11,12 @@ Plataforma voltada para o ambiente escolar, facilitando a comunicação entre Al
 As Ferramentas que foram utilizadas na construção do projeto:
 
 - [Expo](https://expo.io/)
+- [Yarn](https://classic.yarnpkg.com/lang/en/) ou [npm](https://www.npmjs.com/get-npm) 
 - [Node.js](https://nodejs.org/en/)
 - [React Native](https://reactnative.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
 
-### Layout
+### :link: Layout
 
 [Figma](https://www.figma.com/file/d08IgjbxHLGiNtAz8TmkJv/comms-app?node-id=0%3A1)
 
