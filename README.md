@@ -10,7 +10,7 @@ Plataforma voltada para o ambiente escolar, facilitando a comunicação entre Al
 
 As Ferramentas que foram utilizadas na construção do projeto:
 
-- 
+- [Expo](https://expo.io/)
 - [Yarn](https://classic.yarnpkg.com/lang/en/) ou [npm](https://www.npmjs.com/get-npm) 
 - [Node.js](https://nodejs.org/en/)
 - [React Native](https://reactnative.dev/)
@@ -41,7 +41,7 @@ $ cd comms-mobile
 # Instale as dependências
 $ Npm: `npm install` ,  Yarn: `yarn` ou `yarn install`
  
-# Execute a aplicação em modo de desenvolvimento
+# Execute a aplicação
 $ expo start
 ```
 
