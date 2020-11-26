@@ -3,7 +3,12 @@
 
   <h1>Comms</h1>
 
+![Status][status-badge]
+[![License][license-badge]][license-url]
+
 Plataforma voltada para o ambiente escolar, facilitando a comunicação entre Alunos, Professores e Funcionários.
+
+</br>
 </div>
 
 ### Tecnologias 🛠 
@@ -48,3 +53,9 @@ $ expo start
 ### Licença :memo:
 
 Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](https://github.com/MatheusSESH/comms-app/blob/master/LICENSE) para mais detalhes.
+
+
+
+[status-badge]: https://img.shields.io/badge/status-building-important?logo=tool
+[license-url]: https://github.com/MatheusSESH/comms-app/blob/master/LICENSE
+[license-badge]: https://img.shields.io/github/license/matheusSESh/comms-app?color=%233575F8
