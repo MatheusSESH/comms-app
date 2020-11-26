@@ -44,7 +44,7 @@ $ cd comms-app
 $ cd comms-mobile
 
 # Instale as dependências
-$ Npm: `npm install` ,  Yarn: `yarn` ou `yarn install`
+$ Npm: ``npm install`` ,  Yarn: yarn` ou `yarn install`
  
 # Execute a aplicação
 $ expo start
