@@ -57,5 +57,5 @@ Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](https://github.c
 
 
 [status-badge]: https://img.shields.io/badge/Status-Building-yellow
-[license-url]: https://github.com/MatheusSESH/comms-app/LICENSE
+[license-url]: https://github.com/MatheusSESH/comms-app/blob/master/LICENSE
 [license-badge]: https://img.shields.io/badge/License-MIT-blue
