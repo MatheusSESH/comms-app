@@ -29,7 +29,7 @@ As Ferramentas que foram utilizadas na construção do projeto:
 
 ### Pré-requisitos
 
-Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+Antes de testar a aplicação, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
 [Node.js](https://nodejs.org/en/), [Git](https://git-scm.com), [Yarn](https://classic.yarnpkg.com/lang/en/) ou [npm](https://www.npmjs.com/get-npm) e o [Expo](https://expo.io/).
 
 
