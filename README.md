@@ -46,3 +46,5 @@ $ expo start
 ```
 
 ### Licença :memo:
+
+Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](https://github.com/MatheusSESH/comms-app/blob/master/LICENSE) para mais detalhes.
